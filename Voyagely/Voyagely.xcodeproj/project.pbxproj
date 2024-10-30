@@ -17,6 +17,7 @@
 		7DC9A9792CD297A4009B3C82 /* View+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DC9A9782CD297A4009B3C82 /* View+Extensions.swift */; };
 		7DC9A97B2CD2981D009B3C82 /* CategoryList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DC9A97A2CD2981D009B3C82 /* CategoryList.swift */; };
 		7DC9A97D2CD29EF3009B3C82 /* StoryDesign.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DC9A97C2CD29EF3009B3C82 /* StoryDesign.swift */; };
+		7DC9A97F2CD2A5E1009B3C82 /* ListOnHome.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DC9A97E2CD2A5E1009B3C82 /* ListOnHome.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +32,7 @@
 		7DC9A9782CD297A4009B3C82 /* View+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extensions.swift"; sourceTree = "<group>"; };
 		7DC9A97A2CD2981D009B3C82 /* CategoryList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryList.swift; sourceTree = "<group>"; };
 		7DC9A97C2CD29EF3009B3C82 /* StoryDesign.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryDesign.swift; sourceTree = "<group>"; };
+		7DC9A97E2CD2A5E1009B3C82 /* ListOnHome.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListOnHome.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +107,7 @@
 				7DC9A9722CD292E2009B3C82 /* ToolbarDesign.swift */,
 				7DC9A97A2CD2981D009B3C82 /* CategoryList.swift */,
 				7DC9A97C2CD29EF3009B3C82 /* StoryDesign.swift */,
+				7DC9A97E2CD2A5E1009B3C82 /* ListOnHome.swift */,
 			);
 			path = views;
 			sourceTree = "<group>";
@@ -200,6 +203,7 @@
 				7DC9A9752CD29395009B3C82 /* Category.swift in Sources */,
 				7DC9A9622CD273E4009B3C82 /* ContentView.swift in Sources */,
 				7DC9A9602CD273E4009B3C82 /* VoyagelyApp.swift in Sources */,
+				7DC9A97F2CD2A5E1009B3C82 /* ListOnHome.swift in Sources */,
 				7DC9A9792CD297A4009B3C82 /* View+Extensions.swift in Sources */,
 				7DC9A9732CD292E2009B3C82 /* ToolbarDesign.swift in Sources */,
 				7DC9A97D2CD29EF3009B3C82 /* StoryDesign.swift in Sources */,

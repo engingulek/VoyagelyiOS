@@ -14,9 +14,16 @@ struct HomeView: View {
     var body: some View {
         VStack{
             ToolbarDesign()
-            StoryDesign()
-            CategoryList()
-          
+            ScrollView {
+                StoryDesign()
+                CategoryList()
+                ListOnHome()
+                
+            }
+            
+            
+            
+            
             
             
         }
@@ -31,5 +38,5 @@ struct HomeView: View {
 }
 
 /*
-
+ 
  */
