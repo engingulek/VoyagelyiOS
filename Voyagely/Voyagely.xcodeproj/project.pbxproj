@@ -11,6 +11,8 @@
 		7DC9A9622CD273E4009B3C82 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DC9A9612CD273E4009B3C82 /* ContentView.swift */; };
 		7DC9A9642CD273E6009B3C82 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7DC9A9632CD273E6009B3C82 /* Assets.xcassets */; };
 		7DC9A9672CD273E6009B3C82 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7DC9A9662CD273E6009B3C82 /* Preview Assets.xcassets */; };
+		7DC9A9702CD28A59009B3C82 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DC9A96F2CD28A59009B3C82 /* HomeView.swift */; };
+		7DC9A9732CD292E2009B3C82 /* ToolbarDesign.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DC9A9722CD292E2009B3C82 /* ToolbarDesign.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +21,8 @@
 		7DC9A9612CD273E4009B3C82 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		7DC9A9632CD273E6009B3C82 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7DC9A9662CD273E6009B3C82 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		7DC9A96F2CD28A59009B3C82 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		7DC9A9722CD292E2009B3C82 /* ToolbarDesign.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolbarDesign.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,6 +55,7 @@
 		7DC9A95E2CD273E4009B3C82 /* Voyagely */ = {
 			isa = PBXGroup;
 			children = (
+				7DC9A96D2CD289E5009B3C82 /* modules */,
 				7DC9A95F2CD273E4009B3C82 /* VoyagelyApp.swift */,
 				7DC9A9612CD273E4009B3C82 /* ContentView.swift */,
 				7DC9A9632CD273E6009B3C82 /* Assets.xcassets */,
@@ -65,6 +70,31 @@
 				7DC9A9662CD273E6009B3C82 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		7DC9A96D2CD289E5009B3C82 /* modules */ = {
+			isa = PBXGroup;
+			children = (
+				7DC9A96E2CD28A47009B3C82 /* HomeModule */,
+			);
+			path = modules;
+			sourceTree = "<group>";
+		};
+		7DC9A96E2CD28A47009B3C82 /* HomeModule */ = {
+			isa = PBXGroup;
+			children = (
+				7DC9A9712CD292BD009B3C82 /* views */,
+				7DC9A96F2CD28A59009B3C82 /* HomeView.swift */,
+			);
+			path = HomeModule;
+			sourceTree = "<group>";
+		};
+		7DC9A9712CD292BD009B3C82 /* views */ = {
+			isa = PBXGroup;
+			children = (
+				7DC9A9722CD292E2009B3C82 /* ToolbarDesign.swift */,
+			);
+			path = views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,8 +167,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7DC9A9702CD28A59009B3C82 /* HomeView.swift in Sources */,
 				7DC9A9622CD273E4009B3C82 /* ContentView.swift in Sources */,
 				7DC9A9602CD273E4009B3C82 /* VoyagelyApp.swift in Sources */,
+				7DC9A9732CD292E2009B3C82 /* ToolbarDesign.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
