@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct ToolbarDesign: View {
+    @ObservedObject var viewModel : HomeViewModel
     @State private var searchText = "a"
     var body: some View {
         VStack{
@@ -19,22 +20,26 @@ struct ToolbarDesign: View {
                         Text("Istanbul,Türkiye")
                     }.fontWeight(.semibold)
                 }
-               Spacer()
+                Spacer()
                 
             }
             HStack(spacing:1) {
                 Image(systemName: "magnifyingglass")
                     .font(.title)
-                TextField("Ara...", text: $searchText)
-                                    .padding()
+                TextField("Search...", text: $viewModel.searchText)
+                    .onChange(of: viewModel.searchText) { oldValue,newValue in
+                        viewModel.searchAction(searchText: newValue)
+                    }
+                
+                    .padding()
             }
             .padding(.horizontal)
             .padding(.vertical,3)
             .background(Color.white)
             .cornerRadius(20)
-          
+            
             .foregroundStyle(.black)
-          
+            
             
         }
         .padding()
@@ -45,5 +50,5 @@ struct ToolbarDesign: View {
 }
 
 #Preview {
-    ToolbarDesign()
+    ToolbarDesign(viewModel: HomeViewModel(service: HomeService()))
 }

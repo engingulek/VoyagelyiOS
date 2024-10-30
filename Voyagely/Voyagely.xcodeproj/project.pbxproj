@@ -7,6 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7D69FA582CD2BDCF000E7001 /* Swinject in Frameworks */ = {isa = PBXBuildFile; productRef = 7D69FA572CD2BDCF000E7001 /* Swinject */; };
+		7D69FA5A2CD2BDCF000E7001 /* Swinject-Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = 7D69FA592CD2BDCF000E7001 /* Swinject-Dynamic */; };
+		7D69FA5C2CD2BDE4000E7001 /* HomeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D69FA5B2CD2BDE4000E7001 /* HomeService.swift */; };
+		7D69FA5F2CD2BEB1000E7001 /* AppContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D69FA5E2CD2BEB1000E7001 /* AppContainer.swift */; };
+		7D69FA612CD2C101000E7001 /* Swinject in Frameworks */ = {isa = PBXBuildFile; productRef = 7D69FA602CD2C101000E7001 /* Swinject */; };
+		7D69FA632CD2C101000E7001 /* Swinject-Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = 7D69FA622CD2C101000E7001 /* Swinject-Dynamic */; };
+		7D69FA662CD2C311000E7001 /* Story.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D69FA652CD2C311000E7001 /* Story.swift */; };
+		7D69FA682CD2C350000E7001 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D69FA672CD2C350000E7001 /* User.swift */; };
+		7D69FA6A2CD2C7A4000E7001 /* Advert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D69FA692CD2C7A4000E7001 /* Advert.swift */; };
 		7DC9A9602CD273E4009B3C82 /* VoyagelyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DC9A95F2CD273E4009B3C82 /* VoyagelyApp.swift */; };
 		7DC9A9622CD273E4009B3C82 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DC9A9612CD273E4009B3C82 /* ContentView.swift */; };
 		7DC9A9642CD273E6009B3C82 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7DC9A9632CD273E6009B3C82 /* Assets.xcassets */; };
@@ -18,9 +27,15 @@
 		7DC9A97B2CD2981D009B3C82 /* CategoryList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DC9A97A2CD2981D009B3C82 /* CategoryList.swift */; };
 		7DC9A97D2CD29EF3009B3C82 /* StoryDesign.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DC9A97C2CD29EF3009B3C82 /* StoryDesign.swift */; };
 		7DC9A97F2CD2A5E1009B3C82 /* ListOnHome.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DC9A97E2CD2A5E1009B3C82 /* ListOnHome.swift */; };
+		7DC9A9812CD2B5D1009B3C82 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DC9A9802CD2B5D1009B3C82 /* HomeViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7D69FA5B2CD2BDE4000E7001 /* HomeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeService.swift; sourceTree = "<group>"; };
+		7D69FA5E2CD2BEB1000E7001 /* AppContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppContainer.swift; sourceTree = "<group>"; };
+		7D69FA652CD2C311000E7001 /* Story.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Story.swift; sourceTree = "<group>"; };
+		7D69FA672CD2C350000E7001 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		7D69FA692CD2C7A4000E7001 /* Advert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Advert.swift; sourceTree = "<group>"; };
 		7DC9A95C2CD273E4009B3C82 /* Voyagely.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Voyagely.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7DC9A95F2CD273E4009B3C82 /* VoyagelyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoyagelyApp.swift; sourceTree = "<group>"; };
 		7DC9A9612CD273E4009B3C82 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -33,6 +48,7 @@
 		7DC9A97A2CD2981D009B3C82 /* CategoryList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryList.swift; sourceTree = "<group>"; };
 		7DC9A97C2CD29EF3009B3C82 /* StoryDesign.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryDesign.swift; sourceTree = "<group>"; };
 		7DC9A97E2CD2A5E1009B3C82 /* ListOnHome.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListOnHome.swift; sourceTree = "<group>"; };
+		7DC9A9802CD2B5D1009B3C82 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -40,12 +56,35 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7D69FA582CD2BDCF000E7001 /* Swinject in Frameworks */,
+				7D69FA632CD2C101000E7001 /* Swinject-Dynamic in Frameworks */,
+				7D69FA5A2CD2BDCF000E7001 /* Swinject-Dynamic in Frameworks */,
+				7D69FA612CD2C101000E7001 /* Swinject in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7D69FA5D2CD2BE80000E7001 /* DI */ = {
+			isa = PBXGroup;
+			children = (
+				7D69FA5E2CD2BEB1000E7001 /* AppContainer.swift */,
+			);
+			path = DI;
+			sourceTree = "<group>";
+		};
+		7D69FA642CD2C2F6000E7001 /* models */ = {
+			isa = PBXGroup;
+			children = (
+				7DC9A9742CD29395009B3C82 /* Category.swift */,
+				7D69FA652CD2C311000E7001 /* Story.swift */,
+				7D69FA672CD2C350000E7001 /* User.swift */,
+				7D69FA692CD2C7A4000E7001 /* Advert.swift */,
+			);
+			path = models;
+			sourceTree = "<group>";
+		};
 		7DC9A9532CD273E3009B3C82 = {
 			isa = PBXGroup;
 			children = (
@@ -94,9 +133,11 @@
 		7DC9A96E2CD28A47009B3C82 /* HomeModule */ = {
 			isa = PBXGroup;
 			children = (
+				7D69FA642CD2C2F6000E7001 /* models */,
 				7DC9A9712CD292BD009B3C82 /* views */,
 				7DC9A96F2CD28A59009B3C82 /* HomeView.swift */,
-				7DC9A9742CD29395009B3C82 /* Category.swift */,
+				7DC9A9802CD2B5D1009B3C82 /* HomeViewModel.swift */,
+				7D69FA5B2CD2BDE4000E7001 /* HomeService.swift */,
 			);
 			path = HomeModule;
 			sourceTree = "<group>";
@@ -115,6 +156,7 @@
 		7DC9A9762CD29783009B3C82 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				7D69FA5D2CD2BE80000E7001 /* DI */,
 				7DC9A9772CD2978E009B3C82 /* Extension */,
 			);
 			path = Utils;
@@ -144,6 +186,12 @@
 			dependencies = (
 			);
 			name = Voyagely;
+			packageProductDependencies = (
+				7D69FA572CD2BDCF000E7001 /* Swinject */,
+				7D69FA592CD2BDCF000E7001 /* Swinject-Dynamic */,
+				7D69FA602CD2C101000E7001 /* Swinject */,
+				7D69FA622CD2C101000E7001 /* Swinject-Dynamic */,
+			);
 			productName = Voyagely;
 			productReference = 7DC9A95C2CD273E4009B3C82 /* Voyagely.app */;
 			productType = "com.apple.product-type.application";
@@ -172,6 +220,9 @@
 				Base,
 			);
 			mainGroup = 7DC9A9532CD273E3009B3C82;
+			packageReferences = (
+				7D69FA562CD2BDCF000E7001 /* XCRemoteSwiftPackageReference "Swinject" */,
+			);
 			productRefGroup = 7DC9A95D2CD273E4009B3C82 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -200,11 +251,17 @@
 			files = (
 				7DC9A9702CD28A59009B3C82 /* HomeView.swift in Sources */,
 				7DC9A97B2CD2981D009B3C82 /* CategoryList.swift in Sources */,
+				7D69FA6A2CD2C7A4000E7001 /* Advert.swift in Sources */,
 				7DC9A9752CD29395009B3C82 /* Category.swift in Sources */,
+				7DC9A9812CD2B5D1009B3C82 /* HomeViewModel.swift in Sources */,
 				7DC9A9622CD273E4009B3C82 /* ContentView.swift in Sources */,
+				7D69FA5F2CD2BEB1000E7001 /* AppContainer.swift in Sources */,
+				7D69FA682CD2C350000E7001 /* User.swift in Sources */,
 				7DC9A9602CD273E4009B3C82 /* VoyagelyApp.swift in Sources */,
 				7DC9A97F2CD2A5E1009B3C82 /* ListOnHome.swift in Sources */,
+				7D69FA662CD2C311000E7001 /* Story.swift in Sources */,
 				7DC9A9792CD297A4009B3C82 /* View+Extensions.swift in Sources */,
+				7D69FA5C2CD2BDE4000E7001 /* HomeService.swift in Sources */,
 				7DC9A9732CD292E2009B3C82 /* ToolbarDesign.swift in Sources */,
 				7DC9A97D2CD29EF3009B3C82 /* StoryDesign.swift in Sources */,
 			);
@@ -412,6 +469,40 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		7D69FA562CD2BDCF000E7001 /* XCRemoteSwiftPackageReference "Swinject" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Swinject/Swinject.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.9.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		7D69FA572CD2BDCF000E7001 /* Swinject */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7D69FA562CD2BDCF000E7001 /* XCRemoteSwiftPackageReference "Swinject" */;
+			productName = Swinject;
+		};
+		7D69FA592CD2BDCF000E7001 /* Swinject-Dynamic */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7D69FA562CD2BDCF000E7001 /* XCRemoteSwiftPackageReference "Swinject" */;
+			productName = "Swinject-Dynamic";
+		};
+		7D69FA602CD2C101000E7001 /* Swinject */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7D69FA562CD2BDCF000E7001 /* XCRemoteSwiftPackageReference "Swinject" */;
+			productName = Swinject;
+		};
+		7D69FA622CD2C101000E7001 /* Swinject-Dynamic */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7D69FA562CD2BDCF000E7001 /* XCRemoteSwiftPackageReference "Swinject" */;
+			productName = "Swinject-Dynamic";
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 7DC9A9542CD273E3009B3C82 /* Project object */;
 }

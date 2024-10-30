@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct StoryDesign: View {
+    @ObservedObject var viewModel:HomeViewModel
     var body: some View {
         VStack(alignment:.leading,spacing:1){
             Text("Stories")
@@ -24,7 +25,7 @@ struct StoryDesign: View {
                     .frame(width: 120,height: 150)
                     .background(Color.gray.opacity(0.2))
                     .cornerRadius(25)
-                    ForEach(0..<10, id: \.self){ index in
+                    ForEach(viewModel.stories,id:\.id){ story in
                         ZStack {
                             Image("test")
                                 .resizable()
@@ -33,12 +34,12 @@ struct StoryDesign: View {
                                 .clipped()
                                 .cornerRadius(25)
                             VStack{
-                                Text("Name Surname")
+                                Text("\(story.user.name) \(story.user.surname)")
                                     
                                   Spacer()
                                 HStack{
                                     Image(systemName: "mappin.and.ellipse")
-                                    Text("Paris,France")
+                                    Text(story.locationInfo)
                                 }
                             }.foregroundStyle(.white)
                                 .font(.caption)
@@ -64,5 +65,5 @@ struct StoryDesign: View {
 }
 
 #Preview {
-    StoryDesign()
+    StoryDesign(viewModel: HomeViewModel(service: HomeService()))
 }

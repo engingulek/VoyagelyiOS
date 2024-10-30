@@ -10,33 +10,26 @@ import SwiftUI
 
 
 struct HomeView: View {
-    
+    @ObservedObject var viewModel:HomeViewModel
     var body: some View {
         VStack{
-            ToolbarDesign()
+            ToolbarDesign(viewModel: viewModel)
             ScrollView {
-                StoryDesign()
-                CategoryList()
+                StoryDesign(viewModel: viewModel)
+                CategoryList(viewModel: viewModel)
                 ListOnHome()
                 
             }
-            
-            
-            
-            
-            
-            
+        }.onAppear{
+            viewModel.onAppear()
         }
-        Spacer()
         
         
     }
 }
 
 #Preview {
-    HomeView()
+    HomeView(viewModel: HomeViewModel(service: HomeService()))
 }
 
-/*
- 
- */
+

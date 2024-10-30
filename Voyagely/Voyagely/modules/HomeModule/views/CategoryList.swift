@@ -8,13 +8,14 @@
 import SwiftUI
 
 struct CategoryList: View {
+    @ObservedObject var viewModel : HomeViewModel
     var body: some View {
         VStack(alignment:.leading,spacing: 15){
             Text("Categories")
                 .fontWeight(.semibold)
                 .font(.title2)
             HStack {
-                ForEach(Category.list,id: \.id){ category in
+                ForEach(viewModel.categoires,id: \.id){ category in
                     Text(category.name)
                     
                         .padding()
@@ -33,5 +34,5 @@ struct CategoryList: View {
 }
 
 #Preview {
-    CategoryList()
+    CategoryList(viewModel: HomeViewModel(service: HomeService()))
 }

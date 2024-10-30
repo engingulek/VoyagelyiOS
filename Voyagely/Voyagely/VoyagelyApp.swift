@@ -6,12 +6,13 @@
 //
 
 import SwiftUI
-
+import Swinject
 @main
 struct VoyagelyApp: App {
+    let appContainer = AppContainer()
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            HomeView(viewModel: appContainer.resolve(HomeViewModel.self)! )
         }
     }
 }
