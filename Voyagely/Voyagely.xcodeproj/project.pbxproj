@@ -13,6 +13,10 @@
 		7DC9A9672CD273E6009B3C82 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7DC9A9662CD273E6009B3C82 /* Preview Assets.xcassets */; };
 		7DC9A9702CD28A59009B3C82 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DC9A96F2CD28A59009B3C82 /* HomeView.swift */; };
 		7DC9A9732CD292E2009B3C82 /* ToolbarDesign.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DC9A9722CD292E2009B3C82 /* ToolbarDesign.swift */; };
+		7DC9A9752CD29395009B3C82 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DC9A9742CD29395009B3C82 /* Category.swift */; };
+		7DC9A9792CD297A4009B3C82 /* View+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DC9A9782CD297A4009B3C82 /* View+Extensions.swift */; };
+		7DC9A97B2CD2981D009B3C82 /* CategoryList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DC9A97A2CD2981D009B3C82 /* CategoryList.swift */; };
+		7DC9A97D2CD29EF3009B3C82 /* StoryDesign.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DC9A97C2CD29EF3009B3C82 /* StoryDesign.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +27,10 @@
 		7DC9A9662CD273E6009B3C82 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		7DC9A96F2CD28A59009B3C82 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		7DC9A9722CD292E2009B3C82 /* ToolbarDesign.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolbarDesign.swift; sourceTree = "<group>"; };
+		7DC9A9742CD29395009B3C82 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
+		7DC9A9782CD297A4009B3C82 /* View+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extensions.swift"; sourceTree = "<group>"; };
+		7DC9A97A2CD2981D009B3C82 /* CategoryList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryList.swift; sourceTree = "<group>"; };
+		7DC9A97C2CD29EF3009B3C82 /* StoryDesign.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryDesign.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +83,7 @@
 		7DC9A96D2CD289E5009B3C82 /* modules */ = {
 			isa = PBXGroup;
 			children = (
+				7DC9A9762CD29783009B3C82 /* Utils */,
 				7DC9A96E2CD28A47009B3C82 /* HomeModule */,
 			);
 			path = modules;
@@ -85,6 +94,7 @@
 			children = (
 				7DC9A9712CD292BD009B3C82 /* views */,
 				7DC9A96F2CD28A59009B3C82 /* HomeView.swift */,
+				7DC9A9742CD29395009B3C82 /* Category.swift */,
 			);
 			path = HomeModule;
 			sourceTree = "<group>";
@@ -93,8 +103,26 @@
 			isa = PBXGroup;
 			children = (
 				7DC9A9722CD292E2009B3C82 /* ToolbarDesign.swift */,
+				7DC9A97A2CD2981D009B3C82 /* CategoryList.swift */,
+				7DC9A97C2CD29EF3009B3C82 /* StoryDesign.swift */,
 			);
 			path = views;
+			sourceTree = "<group>";
+		};
+		7DC9A9762CD29783009B3C82 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				7DC9A9772CD2978E009B3C82 /* Extension */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		7DC9A9772CD2978E009B3C82 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				7DC9A9782CD297A4009B3C82 /* View+Extensions.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -168,9 +196,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				7DC9A9702CD28A59009B3C82 /* HomeView.swift in Sources */,
+				7DC9A97B2CD2981D009B3C82 /* CategoryList.swift in Sources */,
+				7DC9A9752CD29395009B3C82 /* Category.swift in Sources */,
 				7DC9A9622CD273E4009B3C82 /* ContentView.swift in Sources */,
 				7DC9A9602CD273E4009B3C82 /* VoyagelyApp.swift in Sources */,
+				7DC9A9792CD297A4009B3C82 /* View+Extensions.swift in Sources */,
 				7DC9A9732CD292E2009B3C82 /* ToolbarDesign.swift in Sources */,
+				7DC9A97D2CD29EF3009B3C82 /* StoryDesign.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -7,15 +7,21 @@
 
 import SwiftUI
 
+
+
 struct HomeView: View {
     
     var body: some View {
         VStack{
             ToolbarDesign()
+            StoryDesign()
+            CategoryList()
+          
+            
             
         }
-       Spacer()
-       
+        Spacer()
+        
         
     }
 }
@@ -23,3 +29,7 @@ struct HomeView: View {
 #Preview {
     HomeView()
 }
+
+/*
+
+ */
