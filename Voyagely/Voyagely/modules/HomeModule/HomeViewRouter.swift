@@ -15,7 +15,7 @@ protocol HomeViewRouterProtocol {
 class HomeViewRouter : HomeViewRouterProtocol{
     private var appContainer = AppContainer()
     func toSearchView(text:String) -> AnyView {
-        let view = SearchView(viewModel: appContainer.resolve(SearchViewModel.self)!)
+        let view = SearchView(viewModel: appContainer.resolve(SearchViewModel.self))
         view.viewModel.getSearchText(text: text)
         return AnyView(view)
     }
