@@ -15,7 +15,8 @@ class HomeViewModel : ObservableObject {
     @Published var categoires:[Category] = []
     @Published var stories:[Story] = []
     @Published var searchText:String = ""
-    
+    @Published var searchToView : Bool = false
+    private var router:HomeViewRouterProtocol = HomeViewRouter()
     init(service: HomeServiceProtocol) {
         self.service = service
     }
@@ -35,8 +36,12 @@ class HomeViewModel : ObservableObject {
     
     func searchAction(searchText:String){
         self.searchText = searchText
-        print(searchText)
+        if searchText.count > 3{
+            searchToView = true
+        }
     }
+    
+  
 }
 
 
