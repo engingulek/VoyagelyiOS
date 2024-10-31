@@ -10,6 +10,7 @@ import SwiftUI
 struct SearchView: View {
     @ObservedObject var viewModel:SearchViewModel
     @Environment(\.dismiss) var dismiss
+   
     var body: some View {
         VStack{
             HStack {

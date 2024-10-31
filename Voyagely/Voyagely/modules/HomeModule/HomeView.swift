@@ -6,12 +6,20 @@
 //
 
 import SwiftUI
+import MapKit
 
+struct Location: Identifiable {
+    let id = UUID()
+    let name: String
+    let coordinate: CLLocationCoordinate2D
+}
 
 
 struct HomeView: View {
     @ObservedObject var viewModel:HomeViewModel
     private var router : HomeViewRouterProtocol
+    
+    
     init(viewModel: HomeViewModel, router: HomeViewRouterProtocol) {
         self.viewModel = viewModel
         self.router = router
@@ -20,18 +28,21 @@ struct HomeView: View {
         NavigationStack {
             VStack{
                 ToolbarDesign(viewModel: viewModel)
-                ScrollView {
+               
                     StoryDesign(viewModel: viewModel)
                     CategoryList(viewModel: viewModel)
-                    ListOnHome()
-                }
+             
+                   
+                    
+                
             }.onAppear{
                 viewModel.onAppear()
+              
             }.navigationDestination(isPresented: $viewModel.searchToView) {
                 router.toSearchView(text: viewModel.searchText)
             }
         }
-       
+        
         
         
     }
