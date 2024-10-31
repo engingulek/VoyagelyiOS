@@ -26,6 +26,15 @@ class AppContainer {
         container.register(HomeViewModel.self) { resolver in
             HomeViewModel(service: resolver.resolve(HomeService.self)!)
         }
+        
+        container.register(SearchViewModel.self) { resolver in
+            SearchViewModel()
+            
+        }
+        
+        container.register(HomeViewRouter.self) { resolver in
+            HomeViewRouter()
+        }
     }
 
     
