@@ -17,7 +17,9 @@ class HomeViewModel : ObservableObject {
     @Published var stories:[Story] = []
     @Published var searchText:String = ""
     @Published var searchToView : Bool = false
+    @Published var toDetailView:Bool = false
     @Published var nearByPlaces:[NearByPlace] = []
+    var selectedId:Int?
     let startingLocation = CLLocationCoordinate2D(latitude: 41.0082, longitude: 28.9784)
     init(service: HomeServiceProtocol) {
         self.service = service
@@ -42,6 +44,11 @@ class HomeViewModel : ObservableObject {
         if searchText.count > 3{
             searchToView = true
         }
+    }
+    
+    func onTapGestureLocation(id:Int){
+        selectedId = id
+        toDetailView = true
     }
     
     private func fetchNearByLocation(){

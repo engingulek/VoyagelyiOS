@@ -31,7 +31,7 @@ struct HomeView: View {
                
                     StoryDesign(viewModel: viewModel)
                     CategoryList(viewModel: viewModel)
-                MapViewOnHome(viewModel: viewModel)
+                MapViewOnHome(viewModel: viewModel,router: router)
                     .frame(width: UIScreen.main.bounds.width - 20 ,
                            height: UIScreen.main.bounds.height / 3.5)
                       .padding()

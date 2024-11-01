@@ -12,61 +12,43 @@ import MapKit
 
 struct MapViewOnHome: View {
     @ObservedObject var viewModel:HomeViewModel
+    private var router : HomeViewRouterProtocol
+    
+    init(viewModel: HomeViewModel, router: HomeViewRouterProtocol) {
+        self.viewModel = viewModel
+        self.router = router
+        
+    }
+    
     let manager = CLLocationManager()
     @State private var cameraPostion : MapCameraPosition = .userLocation(fallback: .automatic)
     var body: some View {
-      
-            VStack {
-                Map(position: $cameraPostion)
-                   {
-                    UserAnnotation()
-                    ForEach(viewModel.nearByPlaces,id: \.id) { place in
-                        Annotation("", coordinate: place.getAdCLLocationCoordinate2D())
-                        {
-                            VStack(spacing:2){
-                                Image("test1")
-                                    .resizable()
-                                    .frame(width: 80,height: 50)
-                                Text(place.name)
-                                Text(place.categoryName)
-                                    .font(.caption)
-                                HStack {
-                                    HStack(spacing:1){
-                                        Text(String(format: "%.1f", place.rating))
-                                        Image(systemName: "star.fill")
-                                            .foregroundStyle(.yellow)
-                                        Text("\(place.comment)")
-                                        Image(systemName: "message.fill")
-                                            .foregroundStyle(.yellow)
-                                    }
-                                        .font(.caption)
-                                }
-                            }.padding(5)
-                            .background(.white)
-                            .cornerRadius(10)
-                                .frame(width: 150,height: 120)
-                               
-                        }
+        
+        VStack {
+            Map(position: $cameraPostion)
+            {
+                UserAnnotation()
+                ForEach(viewModel.nearByPlaces,id: \.id) { place in
+                    Annotation("", coordinate: place.getAdCLLocationCoordinate2D())
+                    {
+                        AnnotionView(place: place)
+                            .onTapGesture {
+                                viewModel.onTapGestureLocation(id: place.id)
+                            }
                     }
-            
-                    
-                   }
-                .onAppear{
-                    manager.requestWhenInUseAuthorization()
                 }
             }
-            
-        
-
-        
-        
-      
-        
+            .onAppear{
+                manager.requestWhenInUseAuthorization()
+            }
+        }.navigationDestination(isPresented: $viewModel.toDetailView) {
+            router.toDetailView(id:viewModel.selectedId )
+        }
     }
 }
 
 #Preview {
-    MapViewOnHome(viewModel: HomeViewModel(service: HomeService()))
+    MapViewOnHome(viewModel: HomeViewModel(service: HomeService()),router: HomeViewRouter())
 }
 
 

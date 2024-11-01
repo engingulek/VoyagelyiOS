@@ -39,6 +39,11 @@ class AppContainer {
         container.register(HomeViewRouter.self) { resolver in
             HomeViewRouter()
         }
+        
+        //DetailViewModel
+        container.register(DetailViewModel.self) { resolver in
+            DetailViewModel()
+        }
     }
 
     
