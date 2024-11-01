@@ -8,48 +8,65 @@
 import SwiftUI
 import MapKit
 
-struct Locationn: Identifiable {
-    let id = UUID() // Her konuma benzersiz bir kimlik verin
-    let name: String
-    let coordinate: CLLocationCoordinate2D
-}
 
-enum MapDetails {
-    static let startingLocation = CLLocationCoordinate2D(latitude: 41.0082, longitude: 28.9784)
-    static let startingLocation2 = CLLocationCoordinate2D(latitude: 37.3329, longitude:-122.0054)
-    
-}
 
 struct MapViewOnHome: View {
+    @ObservedObject var viewModel:HomeViewModel
     let manager = CLLocationManager()
     @State private var cameraPostion : MapCameraPosition = .userLocation(fallback: .automatic)
     var body: some View {
-        
-        Map(position: $cameraPostion){
-            UserAnnotation()
-            Annotation("Test", coordinate: MapDetails.startingLocation2)
-            {
-                VStack{
-                    Circle().background(Color.red).frame(width: 20,height: 20)
+      
+            VStack {
+                Map(position: $cameraPostion)
+                   {
+                    UserAnnotation()
+                    ForEach(viewModel.nearByPlaces,id: \.id) { place in
+                        Annotation("", coordinate: place.getAdCLLocationCoordinate2D())
+                        {
+                            VStack(spacing:2){
+                                Image("test1")
+                                    .resizable()
+                                    .frame(width: 80,height: 50)
+                                Text(place.name)
+                                Text(place.categoryName)
+                                    .font(.caption)
+                                HStack {
+                                    HStack(spacing:1){
+                                        Text(String(format: "%.1f", place.rating))
+                                        Image(systemName: "star.fill")
+                                            .foregroundStyle(.yellow)
+                                        Text("\(place.comment)")
+                                        Image(systemName: "message.fill")
+                                            .foregroundStyle(.yellow)
+                                    }
+                                        .font(.caption)
+                                }
+                            }.padding(5)
+                            .background(.white)
+                            .cornerRadius(10)
+                                .frame(width: 150,height: 120)
+                               
+                        }
+                    }
+            
+                    
+                   }
+                .onAppear{
+                    manager.requestWhenInUseAuthorization()
                 }
             }
             
-        }.mapControls {
-            MapUserLocationButton()
-        }
-        .onAppear{
-            manager.requestWhenInUseAuthorization()
-        }
+        
+
+        
+        
+      
         
     }
 }
 
 #Preview {
-    MapViewOnHome()
+    MapViewOnHome(viewModel: HomeViewModel(service: HomeService()))
 }
 
 
-
-class TestViewModel:ObservableObject {
-    @Published  var region = MapCameraPosition.region(MKCoordinateRegion(center: MapDetails.startingLocation, span: MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05)))
-}
