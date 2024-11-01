@@ -7,16 +7,18 @@
 
 import Foundation
 
-
+import CoreLocation
 
 class HomeViewModel : ObservableObject {
     
     private let service : HomeServiceProtocol
+    
     @Published var categoires:[Category] = []
     @Published var stories:[Story] = []
     @Published var searchText:String = ""
     @Published var searchToView : Bool = false
-    private var router:HomeViewRouterProtocol = HomeViewRouter()
+    @Published var nearByPlaces:[NearByPlace] = []
+    let startingLocation = CLLocationCoordinate2D(latitude: 41.0082, longitude: 28.9784)
     init(service: HomeServiceProtocol) {
         self.service = service
     }
@@ -24,6 +26,7 @@ class HomeViewModel : ObservableObject {
     func onAppear() {
         fetchStroies()
         fetchCategories()
+        fetchNearByLocation()
     }
     
     private func fetchCategories(){
@@ -39,6 +42,16 @@ class HomeViewModel : ObservableObject {
         if searchText.count > 3{
             searchToView = true
         }
+    }
+    
+    private func fetchNearByLocation(){
+        nearByPlaces = [
+            .init(id: 1, imageURL: "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1a/97/1f/fc/main-lobby.jpg?w=600&h=400&s=1",
+                  name: "Light Soon", categoryName: "Restaurant", rating: 4.5, comment: 20, latitude: 40.99955, longitude: 29.04578),
+            
+                .init(id: 2, imageURL: "https://media-cdn.tripadvisor.com/media/photo-s/0a/76/07/ad/my-chef-kadikoy-istanbul.jpg", name: "Our Bar", categoryName: "Bar", rating: 4.0, comment:40, latitude: 41.00024, longitude: 29.04318)
+        
+        ]
     }
     
   

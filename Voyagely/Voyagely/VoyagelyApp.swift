@@ -14,6 +14,7 @@ struct VoyagelyApp: App {
         WindowGroup {
             HomeView(viewModel: appContainer.resolve(HomeViewModel.self),
                      router: appContainer.resolve(HomeViewRouter.self) )
+           
         }
     }
 }

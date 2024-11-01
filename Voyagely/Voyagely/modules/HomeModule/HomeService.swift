@@ -16,9 +16,8 @@ class HomeService : HomeServiceProtocol {
     func getCategories() -> [Category] {
         let list :[Category] = [
              .init(id: 1, name: "Hotel"),
-             .init(id: 2, name: "Park"),
              .init(id: 3, name: "Restaurnat"),
-             .init(id: 4, name: "Musium")
+             .init(id: 4, name: "Bar")
              
          ]
         
