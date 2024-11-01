@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct AnnotionView: View {
-    let place:NearByPlace
+    let place:PlaceInfoOnMap
     var body: some View {
         VStack(spacing:2){
             Image("test1")
@@ -37,5 +37,5 @@ struct AnnotionView: View {
 }
 
 #Preview {
-    AnnotionView(place: NearByPlace.defaultData)
+    AnnotionView(place: PlaceInfoOnMap.defaultData)
 }

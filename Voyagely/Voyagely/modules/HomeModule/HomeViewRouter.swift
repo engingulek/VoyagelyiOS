@@ -10,6 +10,7 @@ import SwiftUI
 protocol HomeViewRouterProtocol {
     func toSearchView(text:String) -> AnyView
     func toDetailView(id:Int?) -> AnyView
+    func toBigMapView() -> AnyView
     
 }
 
@@ -25,6 +26,14 @@ class HomeViewRouter : HomeViewRouterProtocol{
     
     func toDetailView(id: Int?) -> AnyView {
         let view = DetailView(viewModel: appContainer.resolve(DetailViewModel.self))
+        return AnyView(view)
+    }
+    
+    func toBigMapView() -> AnyView {
+        let view = BigMapView(
+            viewModel: appContainer.resolve(BigMapViewModel.self),
+            router: appContainer.resolve(BigMapRouter.self)
+        )
         return AnyView(view)
     }
     

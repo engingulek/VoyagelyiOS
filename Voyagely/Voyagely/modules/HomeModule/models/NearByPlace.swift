@@ -7,7 +7,7 @@
 
 import Foundation
 import CoreLocation
-struct NearByPlace {
+struct PlaceInfoOnMap {
     let id:Int
     let imageURL:String
     let name:String
@@ -21,6 +21,6 @@ struct NearByPlace {
         return CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
     }
     
-    static var defaultData : NearByPlace =   NearByPlace(id: 2, imageURL: "https://media-cdn.tripadvisor.com/media/photo-s/0a/76/07/ad/my-chef-kadikoy-istanbul.jpg", name: "Our Bar", categoryName: "Bar", rating: 4.0, comment:40, latitude: 41.00024, longitude: 29.04318)
+    static var defaultData : PlaceInfoOnMap =   PlaceInfoOnMap(id: 2, imageURL: "https://media-cdn.tripadvisor.com/media/photo-s/0a/76/07/ad/my-chef-kadikoy-istanbul.jpg", name: "Our Bar", categoryName: "Bar", rating: 4.0, comment:40, latitude: 41.00024, longitude: 29.04318)
 }
 

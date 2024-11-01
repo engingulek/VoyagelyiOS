@@ -31,16 +31,31 @@ struct HomeView: View {
                
                     StoryDesign(viewModel: viewModel)
                     CategoryList(viewModel: viewModel)
-                MapViewOnHome(viewModel: viewModel,router: router)
-                    .frame(width: UIScreen.main.bounds.width - 20 ,
-                           height: UIScreen.main.bounds.height / 3.5)
-                      .padding()
-                   
+                ZStack(alignment:.bottom) {
+                    MapViewOnHome(viewModel: viewModel,router: router)
+                        .frame(width: UIScreen.main.bounds.width - 20 ,
+                               height: UIScreen.main.bounds.height / 3.5)
+                          .padding()
+                    
+                    Button {
+                        viewModel.onTappedOpenBigMapButton()
+                    } label: {
+                        Text("Open Big Map")
+                        
+                    }
+                    .padding()
+                    .background(.blue)
+                        .foregroundStyle(.white)
+                        .cornerRadius(10)
+                        .padding(.vertical)
+                }
             }.onAppear{
                 viewModel.onAppear()
               
             }.navigationDestination(isPresented: $viewModel.searchToView) {
                 router.toSearchView(text: viewModel.searchText)
+            }.navigationDestination(isPresented: $viewModel.toBigMapView) {
+                router.toBigMapView()
             }
         }
         

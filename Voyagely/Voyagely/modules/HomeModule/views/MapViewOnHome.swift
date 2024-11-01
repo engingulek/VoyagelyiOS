@@ -19,12 +19,13 @@ struct MapViewOnHome: View {
         self.router = router
         
     }
-    
+    //TODO: Thil will be moved to other class
     let manager = CLLocationManager()
     @State private var cameraPostion : MapCameraPosition = .userLocation(fallback: .automatic)
     var body: some View {
         
         VStack {
+            Text("Near By")
             Map(position: $cameraPostion)
             {
                 UserAnnotation()
@@ -43,7 +44,7 @@ struct MapViewOnHome: View {
             }
         }.navigationDestination(isPresented: $viewModel.toDetailView) {
             router.toDetailView(id:viewModel.selectedId )
-        }
+        } 
     }
 }
 

@@ -17,7 +17,7 @@ class AppContainer {
         container = Container()
         start() 
     }
-
+//TODO: TThis will be done better
     func start() {
         //Home Service
         container.register(HomeService.self) { _ in
@@ -43,6 +43,16 @@ class AppContainer {
         //DetailViewModel
         container.register(DetailViewModel.self) { resolver in
             DetailViewModel()
+        }
+        
+        //BigMapViewModel
+        container.register(BigMapViewModel.self) { resolver in
+           return BigMapViewModel()
+        }
+        
+        //BigMapRouter
+        container.register(BigMapRouter.self) { resolver in
+            return BigMapRouter()
         }
     }
 
