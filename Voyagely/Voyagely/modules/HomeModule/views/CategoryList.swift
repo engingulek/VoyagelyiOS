@@ -22,8 +22,8 @@ struct CategoryList: View {
                         .background(Color.white)
                         .cornerRadius(20, corners: [.topLeft, .topRight, .bottomLeft, .bottomRight])
                         .overlay(
-                            RoundedRectangle(cornerRadius: 20) // Border
-                                .stroke(Color.gray.opacity(0.7), lineWidth: 1) //
+                            RoundedRectangle(cornerRadius: 20)
+                                .stroke(Color.gray.opacity(0.7), lineWidth: 1)
                         )
                     
                 }
