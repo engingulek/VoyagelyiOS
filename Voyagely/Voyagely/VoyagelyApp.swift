@@ -12,9 +12,8 @@ struct VoyagelyApp: App {
     let appContainer = AppContainer()
     var body: some Scene {
         WindowGroup {
-            DetailView(viewModel: appContainer.resolve(DetailViewModel.self))
-          /*  HomeView(viewModel: appContainer.resolve(HomeViewModel.self),
-                     router: appContainer.resolve(HomeViewRouter.self) )*/
+            HomeView(viewModel: appContainer.resolve(HomeViewModel.self),
+                     router: appContainer.resolve(HomeViewRouter.self) )
            
         }
     }
