@@ -10,7 +10,7 @@ import SwiftUI
 struct CategoryList: View {
     @ObservedObject var viewModel : HomeViewModel
     var body: some View {
-        VStack(alignment:.leading,spacing: 15){
+        VStack(alignment:.center,spacing: 15){
             Text("Categories")
                 .fontWeight(.semibold)
                 .font(.title2)

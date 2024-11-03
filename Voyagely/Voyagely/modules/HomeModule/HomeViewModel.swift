@@ -49,7 +49,7 @@ class HomeViewModel : ObservableObject {
         }
     }
     
-    func onTapGestureLocation(id:Int){
+    func onTapGesturePlace(id:Int){
         selectedId = id
         toDetailView = true
     }
