@@ -6,10 +6,14 @@
 //
 
 import Foundation
-
+import CoreLocation
 class DetailViewModel : ObservableObject {
-    
+   private var locationManager = LocationManager()
     func getAdId(id:Int) {
         
+    }
+    
+    func openMap(latitude:Double,longigute:Double,name:String){
+        locationManager.goToCorrdianteOnOpen(latitude: latitude, longitude: longigute, name: name)
     }
 }
