@@ -8,15 +8,22 @@
 import SwiftUI
 
 struct BackButton: View {
+    @Environment(\.dismiss) var dismiss
     var body: some View {
-        Image(systemName: "chevron.backward")
-            .padding()
-            .background(.white)
-            .clipShape(Circle())
-            .padding()
-            .font(.callout)
-            .foregroundStyle(.black)
-            .fontWeight(.semibold)
+        Button {
+            dismiss()
+        } label: {
+            
+            Image(systemName: "chevron.backward")
+                .padding()
+                .background(.white)
+                .clipShape(Circle())
+                .padding()
+                .font(.callout)
+                .foregroundStyle(.black)
+                .fontWeight(.semibold)
+        }
+
     }
 }
 
