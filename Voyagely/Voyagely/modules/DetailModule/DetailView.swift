@@ -9,6 +9,7 @@ import SwiftUI
 
 struct DetailView: View {
     @ObservedObject var viewModel:DetailViewModel
+    
     let images = ["test1","test1","test1","test1"]
     var body: some View {
         ScrollView {
@@ -23,7 +24,7 @@ struct DetailView: View {
                    
                 }
                 
-                DetailInfoView()
+                DetailInfoView(viewModel: viewModel)
                 
                 VStack{
                     Text("Reviews")
@@ -77,6 +78,3 @@ struct DetailView: View {
     DetailView(viewModel: DetailViewModel())
 }
 
-/*
-
- */

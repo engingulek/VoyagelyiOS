@@ -45,6 +45,7 @@
 		7DF63D682CD7ABE300AA7EE3 /* ShowImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DF63D672CD7ABE300AA7EE3 /* ShowImages.swift */; };
 		7DF63D6A2CD7AFFE00AA7EE3 /* SquadViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DF63D692CD7AFFE00AA7EE3 /* SquadViews.swift */; };
 		7DF63D6C2CD7B30D00AA7EE3 /* DetailInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DF63D6B2CD7B30D00AA7EE3 /* DetailInfoView.swift */; };
+		7DF63D912CD7C8CF00AA7EE3 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DF63D902CD7C8CF00AA7EE3 /* LocationManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -83,6 +84,7 @@
 		7DF63D672CD7ABE300AA7EE3 /* ShowImages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowImages.swift; sourceTree = "<group>"; };
 		7DF63D692CD7AFFE00AA7EE3 /* SquadViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SquadViews.swift; sourceTree = "<group>"; };
 		7DF63D6B2CD7B30D00AA7EE3 /* DetailInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailInfoView.swift; sourceTree = "<group>"; };
+		7DF63D902CD7C8CF00AA7EE3 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -160,6 +162,7 @@
 		7DC9A95E2CD273E4009B3C82 /* Voyagely */ = {
 			isa = PBXGroup;
 			children = (
+				7DF63D8E2CD7C8B600AA7EE3 /* Manager */,
 				7DC9A9762CD29783009B3C82 /* Utils */,
 				7DC9A96D2CD289E5009B3C82 /* modules */,
 				7DC9A95F2CD273E4009B3C82 /* VoyagelyApp.swift */,
@@ -269,6 +272,22 @@
 			path = views;
 			sourceTree = "<group>";
 		};
+		7DF63D8E2CD7C8B600AA7EE3 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				7DF63D8F2CD7C8C000AA7EE3 /* LocationManager */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
+		7DF63D8F2CD7C8C000AA7EE3 /* LocationManager */ = {
+			isa = PBXGroup;
+			children = (
+				7DF63D902CD7C8CF00AA7EE3 /* LocationManager.swift */,
+			);
+			path = LocationManager;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -362,6 +381,7 @@
 				7D69FA5F2CD2BEB1000E7001 /* AppContainer.swift in Sources */,
 				7D69FA682CD2C350000E7001 /* User.swift in Sources */,
 				7DC9A9602CD273E4009B3C82 /* VoyagelyApp.swift in Sources */,
+				7DF63D912CD7C8CF00AA7EE3 /* LocationManager.swift in Sources */,
 				7DC9A97F2CD2A5E1009B3C82 /* ListOnMap.swift in Sources */,
 				7D5FDCD52CD5565F00F433A4 /* DetailViewModel.swift in Sources */,
 				7D69FA662CD2C311000E7001 /* Story.swift in Sources */,

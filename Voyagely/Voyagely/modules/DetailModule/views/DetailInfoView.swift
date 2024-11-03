@@ -6,8 +6,10 @@
 //
 
 import SwiftUI
-
+import CoreLocation
+import MapKit
 struct DetailInfoView: View {
+    @ObservedObject var viewModel:DetailViewModel
     var body: some View {
         VStack(spacing:15) {
             Text("Name")
@@ -29,17 +31,20 @@ struct DetailInfoView: View {
                 ImageAndText(image: "star.fill",
                              title: "4.5/5")
             }
-            //TODO: Clickable
             Text("125 Review")
-                .underline()
             
             VStack{
                 Text("Adress")
                     .font(.title2)
                     .fontWeight(.semibold)
+                  
                 
                 ImageAndText(image: "map",
                              title: "Bakır Street No:27 Bakırkoy,Istanbul")
+                
+                .onTapGesture {
+                    viewModel.openMap(latitude: 41.0082, longigute: 28.9784, name: "Name")
+                }
                 .underline()
                 
             }
@@ -52,8 +57,10 @@ struct DetailInfoView: View {
             }.padding()
         }
     }
+    
+   
 }
 
 #Preview {
-    DetailInfoView()
+    DetailInfoView(viewModel: DetailViewModel())
 }
