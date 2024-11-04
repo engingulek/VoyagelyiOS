@@ -11,9 +11,7 @@ struct CategoryList: View {
     @ObservedObject var viewModel : HomeViewModel
     var body: some View {
         VStack(alignment:.center,spacing: 15){
-            Text(TextTheme.categories.rawValue)
-                .fontWeight(.semibold)
-                .font(.title2)
+            PrimaryTitle(text: TextTheme.categories.rawValue)
             HStack {
                 ForEach(viewModel.categoires,id: \.id){ category in
                     Text(category.name)

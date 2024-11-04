@@ -53,11 +53,7 @@ private struct ListSubView : View {
                         HStack{
                             Image(systemName: "mappin.and.ellipse")
                             Text("1.2 Km")
-                        }
-                        
-                        HStack{
-                            Image(systemName: "text.justify")
-                            Text("20 Reviews")
+                            XSText(text: "20 Reviews")
                         }
                     }
                     

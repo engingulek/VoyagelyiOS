@@ -22,7 +22,7 @@ struct ShareView: View {
                         .padding(.vertical,25)
                     Spacer()
                 }
-              
+        
                 Spacer()
                 
                 Text(viewModel.viewShare?.location.name ?? "")
@@ -38,7 +38,6 @@ struct ShareView: View {
                         viewModel.onTappedLocationName()
                     }
             }
-              
         }
         .ignoresSafeArea()
         .scaleEffect(scaleEffect)
@@ -51,4 +50,3 @@ struct ShareView: View {
         }
     }
 }
-

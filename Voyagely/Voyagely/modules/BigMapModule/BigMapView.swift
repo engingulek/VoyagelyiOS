@@ -15,7 +15,6 @@ struct BigMapView: View {
     private var router : BigMapRouterProtocol
     init(viewModel: BigMapViewModel, router: BigMapRouterProtocol) {
         self.viewModel = viewModel
-        
         self.router = router
     }
     var body: some View {
@@ -38,10 +37,7 @@ struct BigMapView: View {
                     .frame(width: UIScreen.main.bounds.width)
                     .frame(height: 300)
                     .padding(.bottom,20)
-                
             }
-            
-            
         } .navigationBarHidden(true)
             .ignoresSafeArea()
         
