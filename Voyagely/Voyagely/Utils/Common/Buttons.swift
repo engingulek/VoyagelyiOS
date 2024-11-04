@@ -27,18 +27,3 @@ struct BackButton: View {
     }
 }
 
-
-struct FavButton:View {
-    let state:Bool = false
-    var body: some View {
-        Image(systemName: state ? "heart.fill" : "heart")
-            .padding()
-            .background(.white)
-            .clipShape(Circle())
-            .padding()
-            .font(.callout)
-            .foregroundStyle(.black)
-            .fontWeight(.semibold)
-    }
-}
-

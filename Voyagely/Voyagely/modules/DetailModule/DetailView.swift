@@ -19,7 +19,6 @@ struct DetailView: View {
                     HStack{
                         BackButton()
                         Spacer()
-                        FavButton()
                     }.padding()
                 }
                 
