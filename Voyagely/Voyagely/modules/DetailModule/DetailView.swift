@@ -21,13 +21,13 @@ struct DetailView: View {
                         Spacer()
                         FavButton()
                     }.padding()
-                   
+                    
                 }
                 
                 DetailInfoView(viewModel: viewModel)
                 
                 VStack{
-                    Text("Reviews")
+                    Text(TextTheme.reviews.rawValue)
                         .font(.title3)
                         .fontWeight(.semibold)
                     ForEach(0..<5){_ in
@@ -44,7 +44,6 @@ struct DetailView: View {
                                         .font(.callout)
                                     ImageAndText(image: "star.fill", title: "4.0")
                                 }
-                              
                                 Spacer()
                                 Text("11.12.2024")
                             }
@@ -54,23 +53,13 @@ struct DetailView: View {
                         .padding()
                         .border(.black, width: 1)
                         .cornerRadius(5)
-                        
                         .padding()
                         
                     }
-                   
-                    
                 }
-                
-                
-             
-               
-               
             }
         }
         .navigationBarHidden(true)
-       
-       
     }
 }
 

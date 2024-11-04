@@ -10,12 +10,10 @@ import SwiftUI
 struct SearchListView: View {
     @ObservedObject var viewModel:SearchViewModel
     var body: some View {
-        
         ScrollView{
             VStack(spacing:10) {
                 ForEach(viewModel.searchList,id: \.id) { search in
                     HStack{
-            
                         Image(systemName: "mappin")
                             .padding(10)
                             .background(Color.gray.opacity(0.2))
@@ -26,7 +24,6 @@ struct SearchListView: View {
                 }
             }.padding(.horizontal)
         }
-        
     }
 }
 

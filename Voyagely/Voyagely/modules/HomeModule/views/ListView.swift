@@ -18,7 +18,7 @@ struct ListView: View {
     ]
     var body: some View {
         VStack{
-            Text("NearBy")
+            Text(TextTheme.nearBy.rawValue)
                 .fontWeight(.semibold)
                 .font(.title2)
             LazyVGrid(columns: columns) {
@@ -69,12 +69,8 @@ private struct ListViewCell : View {
                         .font(.footnote)
                         .fontWeight(.semibold)
                 }
-                
             }.padding(.horizontal)
                 .padding(.bottom)
-        
-            
-       
         }.background(Color.white)
         .cornerRadius(10)
             .padding(.bottom)

@@ -11,7 +11,7 @@ struct ShareDesign: View {
     @ObservedObject var viewModel:HomeViewModel
     var body: some View {
         VStack(alignment:.leading,spacing:1){
-            Text("Sharies")
+            Text(TextTheme.sharies.rawValue)
                 .font(.title2)
                 .fontWeight(.semibold)
             ScrollView(.horizontal,showsIndicators: false) {
@@ -30,9 +30,7 @@ struct ShareDesign: View {
                             .onTapGesture {
                                 viewModel.onTapGestureShare(share: usershare.share)
                             }
-                       
                     }
-                    
                 }.padding(.vertical)
             }
         }.padding(.horizontal)
@@ -49,8 +47,7 @@ private struct SubStory: View {
                 .cornerRadius(25)
             VStack{
                 Text("\(usershare.name) \(usershare.surname)")
-                    
-                  Spacer()
+                Spacer()
                 HStack(spacing:2){
                     Image(systemName: "mappin.and.ellipse")
                     Text(usershare.share.location.name)
@@ -59,9 +56,6 @@ private struct SubStory: View {
                 .font(.caption)
                 .fontWeight(.semibold)
                 .padding()
-           
-               
-            
         }
         .frame(width: 130, height: 160)
         .cornerRadius(25)

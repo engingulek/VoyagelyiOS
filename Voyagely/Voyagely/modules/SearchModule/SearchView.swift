@@ -17,20 +17,16 @@ struct SearchView: View {
                 Button {
                     dismiss()
                 } label: {
-                    Image(systemName: "chevron.backward")
-                        .font(.title2)
-                        .foregroundStyle(.black)
-                        .fontWeight(.semibold)
+                    BackButton()
                 }
 
                 HStack(spacing:1) {
                     Image(systemName: "magnifyingglass")
                         .font(.title)
-                    TextField("Search...", text: $viewModel.searchText)
+                    TextField(TextTheme.searchText.rawValue, text: $viewModel.searchText)
                         .onChange(of: viewModel.searchText) { oldValue,newValue in
                             viewModel.searchAction(searchText: newValue)
                         }
-                    
                         .padding()
                 }
                 .padding(.horizontal)

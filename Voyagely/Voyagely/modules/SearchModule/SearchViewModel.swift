@@ -11,8 +11,6 @@ class SearchViewModel : ObservableObject {
     @Published var searchText:String = ""
     @Published var searchList:[SearchModel] = []
     
- 
-    
     func searchAction(searchText:String){
         self.searchText = searchText
         if searchText.isEmpty{

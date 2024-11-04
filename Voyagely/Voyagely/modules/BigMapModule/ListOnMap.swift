@@ -38,7 +38,6 @@ private struct ListSubView : View {
                 .aspectRatio(contentMode: .fill)
                 .frame(width: 200)
                 .frame(height: 150)
-            
                 .cornerRadius(10)
             
             VStack(alignment:.leading,spacing:10){

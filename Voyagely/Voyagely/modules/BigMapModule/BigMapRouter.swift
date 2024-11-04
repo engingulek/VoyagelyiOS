@@ -17,6 +17,4 @@ class BigMapRouter : BigMapRouterProtocol {
         let view = DetailView(viewModel: appContainer.resolve(DetailViewModel.self))
         return AnyView(view)
     }
-    
-    
 }

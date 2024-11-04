@@ -31,25 +31,10 @@ struct BigMapView: View {
             }
             
             VStack(alignment:.leading) {
-                Button {
-                    
-                    dismiss()
-                } label: {
-                    Image(systemName: "chevron.backward")
-                        .padding()
-                        .background(.white)
-                        .clipShape(Circle())
-                        .padding(.horizontal,25)
-                        .padding(.vertical,35)
-                        .font(.title2)
-                        .foregroundStyle(.black)
-                        .fontWeight(.semibold)
-                }
-            
-                
+               BackButton()
+                    .padding(.vertical,15)
                 Spacer()
                 ListOnMap(viewModel: viewModel)
-                
                     .frame(width: UIScreen.main.bounds.width)
                     .frame(height: 300)
                     .padding(.bottom,20)
