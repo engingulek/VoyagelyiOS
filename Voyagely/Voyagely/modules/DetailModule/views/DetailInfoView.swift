@@ -6,8 +6,7 @@
 //
 
 import SwiftUI
-import CoreLocation
-import MapKit
+
 struct DetailInfoView: View {
     @ObservedObject var viewModel:DetailViewModel
     var body: some View {

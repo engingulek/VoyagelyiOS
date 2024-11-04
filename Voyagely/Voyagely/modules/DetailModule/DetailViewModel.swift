@@ -6,9 +6,9 @@
 //
 
 import Foundation
-import CoreLocation
+
 class DetailViewModel : ObservableObject {
-   private var locationManager = LocationManager()
+    private var locationManager:LocationManagerProtocol = LocationManager()
     func getAdId(id:Int) {
         
     }

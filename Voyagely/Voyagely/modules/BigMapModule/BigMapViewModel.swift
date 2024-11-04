@@ -6,11 +6,11 @@
 //
 
 import Foundation
+import _MapKit_SwiftUI
 
 class BigMapViewModel : ObservableObject {
     @Published var allOnCity:[PlaceInfoOnMap] = []
     @Published var toDetailView:Bool = false
-    
     
     func onAppear() {
        

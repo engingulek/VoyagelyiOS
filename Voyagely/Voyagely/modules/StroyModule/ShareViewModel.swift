@@ -10,7 +10,7 @@ import Foundation
 class ShareViewModel : ObservableObject {
     @Published var viewShare: Share?
     @Published var error:Bool = false
-    private var locationManager = LocationManager()
+    private var locationManager :LocationManagerProtocol = LocationManager()
     
     func fetchShare(share:Share?){
         guard let getSahre = share else{

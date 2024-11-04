@@ -25,7 +25,7 @@ class HomeViewModel : ObservableObject {
     @Published var nearByPlaces:[PlaceInfoOnMap] = []
     var selectedId:Int?
     var selectedShare:Share?
-    let startingLocation = CLLocationCoordinate2D(latitude: 41.0082, longitude: 28.9784)
+    
     init(service: HomeServiceProtocol) {
         self.service = service
     }

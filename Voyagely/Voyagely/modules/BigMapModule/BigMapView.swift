@@ -8,8 +8,7 @@
 import SwiftUI
 import MapKit
 struct BigMapView: View {
-    //TODO: Thil will be moved to other class
-    let manager = CLLocationManager()
+    
     @Environment(\.dismiss) var dismiss
     @ObservedObject var viewModel:BigMapViewModel
     @State private var cameraPostion : MapCameraPosition = .userLocation(fallback: .automatic)
@@ -22,7 +21,6 @@ struct BigMapView: View {
     var body: some View {
         
         ZStack{
-            
             Map(position: $cameraPostion){
                 UserAnnotation()
                 ForEach(viewModel.allOnCity,id: \.id) { place in
@@ -64,7 +62,7 @@ struct BigMapView: View {
         
             .onAppear{
                 viewModel.onAppear()
-                manager.requestWhenInUseAuthorization()
+                
             }.navigationDestination(isPresented: $viewModel.toDetailView) {
                 router.toDetail()
             }
