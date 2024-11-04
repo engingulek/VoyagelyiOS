@@ -25,7 +25,7 @@ struct HomeView: View {
                     ToolbarDesign(viewModel: viewModel)
                     ZStack(alignment:.bottom) {
                         ScrollView {
-                            StoryDesign(viewModel: viewModel)
+                            ShareDesign(viewModel: viewModel)
                             CategoryList(viewModel: viewModel)
                             ListView(viewModel: viewModel,
                                      router: router)
@@ -59,7 +59,7 @@ struct HomeView: View {
             }.navigationDestination(isPresented: $viewModel.toDetailView) {
                 router.toDetailView(id: viewModel.selectedId)
             }.fullScreenCover(isPresented: $viewModel.toStoryView) {
-                router.toStoryView(story: viewModel.selectedShare)
+                router.toStoryView(share: viewModel.selectedShare)
             }
         }
         

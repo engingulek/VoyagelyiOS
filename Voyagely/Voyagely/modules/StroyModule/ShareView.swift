@@ -7,14 +7,14 @@
 
 import SwiftUI
 
-struct StoryView: View {
-    let story:Share?
+struct ShareView: View {
+    @ObservedObject var viewModel : ShareViewModel
     @Environment(\.dismiss) var dismiss
     @State private var scaleEffect: CGFloat = 0.5
     var body: some View {
         ZStack {
             Color.gray.opacity(0.5)
-            AsyncImageLoad(imageURL: story?.shareImageURL ?? "")
+            AsyncImageLoad(imageURL: viewModel.viewShare?.shareImageURL ?? "")
                 .frame(width: UIScreen.main.bounds.width,height: UIScreen.main.bounds.height)
             VStack {
                 HStack {
@@ -25,7 +25,7 @@ struct StoryView: View {
               
                 Spacer()
                 
-                Text(story?.location.name ?? "")
+                Text(viewModel.viewShare?.location.name ?? "")
                     .fontWeight(.semibold)
                     .font(.callout)
                     .frame(width: 150,height: 50)
@@ -34,6 +34,9 @@ struct StoryView: View {
                     .background(.gray.opacity(0.3))
                     .cornerRadius(5)
                     .padding(.vertical,20)
+                    .onTapGesture {
+                        viewModel.onTappedLocationName()
+                    }
             }
               
         }

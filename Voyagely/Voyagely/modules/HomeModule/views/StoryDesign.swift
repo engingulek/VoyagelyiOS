@@ -7,11 +7,11 @@
 
 import SwiftUI
 
-struct StoryDesign: View {
+struct ShareDesign: View {
     @ObservedObject var viewModel:HomeViewModel
     var body: some View {
         VStack(alignment:.leading,spacing:1){
-            Text("Stories")
+            Text("Sharies")
                 .font(.title2)
                 .fontWeight(.semibold)
             ScrollView(.horizontal,showsIndicators: false) {
@@ -73,5 +73,5 @@ private struct SubStory: View {
 }
 
 #Preview {
-    StoryDesign(viewModel: HomeViewModel(service: HomeService()))
+    ShareDesign(viewModel: HomeViewModel(service: HomeService()))
 }

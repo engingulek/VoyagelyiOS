@@ -50,8 +50,11 @@ private struct ListViewCell : View {
                     .padding()
             }
             VStack(alignment:.leading){
-                Text("Name")
-                    .font(.title3)
+                HStack{
+                    Text("Name")
+                        .font(.title3)
+                    Text("$$$")
+                }
                 HStack(spacing:2){
                     ImageAndText(image: "star.fill", title: "4.5")
                     Text("(50 Reviews)")
