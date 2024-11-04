@@ -16,13 +16,15 @@ class HomeViewModel : ObservableObject {
     private let service : HomeServiceProtocol
     
     @Published var categoires:[Category] = []
-    @Published var stories:[UserStory] = []
+    @Published var usershare:[UserShare] = []
     @Published var searchText:String = ""
     @Published var searchToView : Bool = false
     @Published var toDetailView:Bool = false
     @Published var toBigMapView:Bool = false
+    @Published var toStoryView:Bool = false
     @Published var nearByPlaces:[PlaceInfoOnMap] = []
     var selectedId:Int?
+    var selectedShare:Share?
     let startingLocation = CLLocationCoordinate2D(latitude: 41.0082, longitude: 28.9784)
     init(service: HomeServiceProtocol) {
         self.service = service
@@ -39,7 +41,7 @@ class HomeViewModel : ObservableObject {
     }
     
     private func fetchStroies(){
-        stories = service.getStories()
+        usershare = service.getUserShare()
     }
     
     func searchAction(searchText:String){
@@ -56,6 +58,10 @@ class HomeViewModel : ObservableObject {
     
     func onTappedOpenBigMapButton(){
         toBigMapView = true
+    }
+    func onTapGestureShare(share:Share){
+        selectedShare = share
+        toStoryView = true
     }
     
     private func fetchNearByLocation(){

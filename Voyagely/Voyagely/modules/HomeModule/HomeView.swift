@@ -58,6 +58,8 @@ struct HomeView: View {
                 router.toBigMapView()
             }.navigationDestination(isPresented: $viewModel.toDetailView) {
                 router.toDetailView(id: viewModel.selectedId)
+            }.fullScreenCover(isPresented: $viewModel.toStoryView) {
+                router.toStoryView(story: viewModel.selectedShare)
             }
         }
         

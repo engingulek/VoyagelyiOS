@@ -15,7 +15,7 @@ struct AsyncImageLoad: View {
                    
                      image
                          .resizable()
-                         .scaledToFit()
+                         .scaledToFill()
                         
                  } else if phase.error != nil {
                   

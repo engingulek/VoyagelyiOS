@@ -7,23 +7,23 @@
 
 import Foundation
 
-struct UserStory {
+struct UserShare {
     let id:Int
     let name:String
     let surname:String
-    let stories:[Story]
+    let share:Share
 }
 
-struct Story {
+struct Share {
     let id:Int
-    let storyImageURL:String
-    let location:LocationForStory
+    let shareImageURL:String
+    let location:LocationForShare
     let createdDate:Date
     let seenState:Bool? = false
 }
 
 
-struct LocationForStory {
+struct LocationForShare {
     let id:Int
     let name:String
     let locationLatitude:Double
