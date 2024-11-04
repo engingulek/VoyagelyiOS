@@ -6,10 +6,6 @@
 //
 
 import Foundation
-import CoreLocation
-
-
-
 
 class HomeViewModel : ObservableObject {
     
@@ -25,7 +21,7 @@ class HomeViewModel : ObservableObject {
     @Published var nearByPlaces:[PlaceInfoOnMap] = []
     var selectedId:Int?
     var selectedShare:Share?
-    let startingLocation = CLLocationCoordinate2D(latitude: 41.0082, longitude: 28.9784)
+    
     init(service: HomeServiceProtocol) {
         self.service = service
     }
@@ -71,11 +67,8 @@ class HomeViewModel : ObservableObject {
             
                 .init(id: 2, imageURL: "https://media-cdn.tripadvisor.com/media/photo-s/0a/76/07/ad/my-chef-kadikoy-istanbul.jpg", 
                       name: "Our Bar", categoryName: "Bar", rating: 4.0, comment:40, latitude: 41.00024, longitude: 29.04318)
-        
         ]
     }
-    
-  
 }
 
 

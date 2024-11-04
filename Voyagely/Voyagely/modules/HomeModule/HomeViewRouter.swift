@@ -8,13 +8,13 @@
 import Foundation
 import SwiftUI
 protocol HomeViewRouterProtocol {
+    
     func toSearchView(text:String) -> AnyView
     func toDetailView(id:Int?) -> AnyView
     func toBigMapView() -> AnyView
     func toStoryView(share:Share?) -> AnyView
     
 }
-
 
 class HomeViewRouter : HomeViewRouterProtocol{
 
@@ -44,7 +44,4 @@ class HomeViewRouter : HomeViewRouterProtocol{
         view.viewModel.fetchShare(share: share)
         return AnyView(view)
     }
-    
-    
-    
 }

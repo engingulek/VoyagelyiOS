@@ -10,17 +10,13 @@ import SwiftUI
 struct ListView: View {
     @ObservedObject var viewModel:HomeViewModel
     var router : HomeViewRouterProtocol
-    
-    
     let columns = [
         GridItem(.flexible()),
         GridItem(.flexible())
     ]
     var body: some View {
         VStack{
-            Text("NearBy")
-                .fontWeight(.semibold)
-                .font(.title2)
+            PrimaryTitle(text: TextTheme.nearBy.rawValue)
             LazyVGrid(columns: columns) {
                 ForEach(0..<10) { _ in
                     ListViewCell()
@@ -57,24 +53,15 @@ private struct ListViewCell : View {
                 }
                 HStack(spacing:2){
                     ImageAndText(image: "star.fill", title: "4.5")
-                    Text("(50 Reviews)")
-                        .foregroundStyle(.gray.opacity(0.5))
-                        .font(.footnote)
-                        .fontWeight(.semibold)
+                    XSText(text:"(50 Reviews)" )
                 }
                 HStack(spacing:2){
                     ImageAndText(image: "mappin", title: "Bakırkoy")
-                   Text("14 km")
-                        .foregroundStyle(.gray.opacity(0.5))
-                        .font(.footnote)
-                        .fontWeight(.semibold)
+                    XSText(text:"14 km")
+                 
                 }
-                
             }.padding(.horizontal)
                 .padding(.bottom)
-        
-            
-       
         }.background(Color.white)
         .cornerRadius(10)
             .padding(.bottom)

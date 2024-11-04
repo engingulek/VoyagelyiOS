@@ -8,7 +8,6 @@
 import SwiftUI
 import MapKit
 
-
 struct HomeView: View {
     @ObservedObject var viewModel:HomeViewModel
     private var router : HomeViewRouterProtocol
@@ -29,14 +28,11 @@ struct HomeView: View {
                             CategoryList(viewModel: viewModel)
                             ListView(viewModel: viewModel,
                                      router: router)
-                     
-                            
                         }
                         Button {
                             viewModel.onTappedOpenBigMapButton()
                         } label: {
-                            Text("Open Big Map")
-                            
+                            Text(TextTheme.openBigMap.rawValue)
                         }
                         .padding()
                         .background(.blue)
@@ -62,9 +58,6 @@ struct HomeView: View {
                 router.toStoryView(share: viewModel.selectedShare)
             }
         }
-        
-        
-        
     }
 }
 

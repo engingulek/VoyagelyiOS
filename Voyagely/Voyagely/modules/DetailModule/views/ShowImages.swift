@@ -25,14 +25,11 @@ struct ShowImages: View {
                             .cornerRadius(10)
                             .padding()
                     }
-                  
-                     
                 }
             }
             .tabViewStyle(.page(indexDisplayMode: .never))
             .frame(width: UIScreen.main.bounds.width - 20, height: 350)
             .cornerRadius(20)
-           
         }
       
     }

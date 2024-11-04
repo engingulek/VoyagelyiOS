@@ -11,21 +11,17 @@ struct CategoryList: View {
     @ObservedObject var viewModel : HomeViewModel
     var body: some View {
         VStack(alignment:.center,spacing: 15){
-            Text("Categories")
-                .fontWeight(.semibold)
-                .font(.title2)
+            PrimaryTitle(text: TextTheme.categories.rawValue)
             HStack {
                 ForEach(viewModel.categoires,id: \.id){ category in
                     Text(category.name)
-                    
                         .padding()
                         .background(Color.white)
-                        .cornerRadius(20, corners: [.topLeft, .topRight, .bottomLeft, .bottomRight])
+                        .cornerRadius(20)
                         .overlay(
                             RoundedRectangle(cornerRadius: 20)
                                 .stroke(Color.gray.opacity(0.7), lineWidth: 1)
                         )
-                    
                 }
             }
         }.padding(.vertical)

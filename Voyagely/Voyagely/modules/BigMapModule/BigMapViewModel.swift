@@ -6,14 +6,12 @@
 //
 
 import Foundation
+import _MapKit_SwiftUI
 
 class BigMapViewModel : ObservableObject {
     @Published var allOnCity:[PlaceInfoOnMap] = []
     @Published var toDetailView:Bool = false
-    
-    
     func onAppear() {
-       
         fetchAllOnCity()
     }
     
@@ -28,7 +26,6 @@ class BigMapViewModel : ObservableObject {
             
                 .init(id: 2, imageURL: "https://media-cdn.tripadvisor.com/media/photo-s/0a/76/07/ad/my-chef-kadikoy-istanbul.jpg",
                       name: "Our Bar", categoryName: "Bar", rating: 4.0, comment:40, latitude: 41.00024, longitude: 29.04318)
-        
         ]
     }
 }

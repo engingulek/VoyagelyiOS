@@ -32,7 +32,6 @@ struct AnnotionView: View {
         .background(.white)
         .cornerRadius(10)
             .frame(width: 150,height: 120)
-           
     }
 }
 
