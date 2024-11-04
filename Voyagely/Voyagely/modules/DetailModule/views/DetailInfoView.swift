@@ -12,10 +12,14 @@ struct DetailInfoView: View {
     @ObservedObject var viewModel:DetailViewModel
     var body: some View {
         VStack(spacing:15) {
-            Text("Name")
-                .foregroundStyle(.black)
-                .fontWeight(.semibold)
-                .font(.title2)
+            HStack {
+                Text("Name")
+                    .foregroundStyle(.black)
+                    .fontWeight(.semibold)
+                    .font(.title2)
+                Text("$$$")
+            }
+          
             HStack{
                 ImageAndText(image: "mappin",
                              title: "Istabul,Bakırköy")
