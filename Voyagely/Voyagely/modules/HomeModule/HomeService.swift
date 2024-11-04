@@ -15,7 +15,7 @@ protocol HomeServiceProtocol {
 class HomeService : HomeServiceProtocol {
     func getCategories() -> [Category] {
         let list :[Category] = [
-             .init(id: 1, name: "Hotel"),
+             .init(id: 1, name: "Caffe"),
              .init(id: 3, name: "Restaurnat"),
              .init(id: 4, name: "Bar")
              
@@ -32,18 +32,20 @@ class HomeService : HomeServiceProtocol {
         let list : [UserStory] = [
             .init(id: 1, name: "Engin", surname: "Gülek", stories: [
                 .init(id: 1,
-                      storyImageURL: "https://images.pexels.com/photos/586687/pexels-photo-586687.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-                      locationInfo: "Venetian,Italy", createdDate: customDate ?? Date.now),
+                      storyImageURL: "https://images.pexels.com/photos/1546039/pexels-photo-1546039.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+                      location: .init(id: 2, name: "White Bar", locationLatitude:41.00024 , locationLongitude: 29.04318),
+                      createdDate: customDate ?? Date.now),
                 .init(id: 2,
-                      storyImageURL: "https://images.pexels.com/photos/2265876/pexels-photo-2265876.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-                      locationInfo: "Venetian,Italy",
-                      createdDate: customDate ?? Date.now)
+                      storyImageURL: "https://images.pexels.com/photos/1581384/pexels-photo-1581384.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                      location: .init(id: 1, name: "Night Restaurant", locationLatitude:40.99955 , locationLongitude: 29.04578),
+                      createdDate: customDate ?? Date.now),
+                
             
             ]),
             .init(id: 2, name: "Selma", surname: "Derin", stories: [
-                .init(id: 3,
-                      storyImageURL: "https://images.pexels.com/photos/2659475/pexels-photo-2659475.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-                      locationInfo: "Xi'an,China",
+                .init(id: 1,
+                      storyImageURL: "https://images.pexels.com/photos/1546039/pexels-photo-1546039.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+                      location: .init(id: 2, name: "White Bar", locationLatitude:41.00024 , locationLongitude: 29.04318),
                       createdDate: customDate ?? Date.now)
             ])
         ]

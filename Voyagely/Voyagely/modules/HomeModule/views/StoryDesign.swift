@@ -37,7 +37,7 @@ struct StoryDesign: View {
                                   Spacer()
                                 HStack(spacing:2){
                                     Image(systemName: "mappin.and.ellipse")
-                                    Text(story.stories.last?.locationInfo ?? "")
+                                    Text(story.stories.last?.location.name ?? "")
                                 }
                             }.foregroundStyle(.white)
                                 .font(.caption)
