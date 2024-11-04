@@ -7,14 +7,19 @@
 
 import Foundation
 
+struct UserStory {
+    let id:Int
+    let name:String
+    let surname:String
+    let stories:[Story]
+}
+
 struct Story {
     let id:Int
-    let user:User
     let storyImageURL:String
     let locationInfo:String
-    let date:String
-    
- 
+    let createdDate:Date
+    let seenState:Bool? = false
 }
 
 

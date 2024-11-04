@@ -16,7 +16,7 @@ class HomeViewModel : ObservableObject {
     private let service : HomeServiceProtocol
     
     @Published var categoires:[Category] = []
-    @Published var stories:[Story] = []
+    @Published var stories:[UserStory] = []
     @Published var searchText:String = ""
     @Published var searchToView : Bool = false
     @Published var toDetailView:Bool = false

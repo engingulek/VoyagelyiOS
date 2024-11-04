@@ -27,19 +27,17 @@ struct StoryDesign: View {
                     .cornerRadius(25)
                     ForEach(viewModel.stories,id:\.id){ story in
                         ZStack {
-                            Image("test")
-                                .resizable()
-                                .aspectRatio(contentMode: .fill)
+                            AsyncImageLoad(imageURL: story.stories.last?.storyImageURL ?? "" )
                                 .frame(width: 120, height: 150)
                                 .clipped()
                                 .cornerRadius(25)
                             VStack{
-                                Text("\(story.user.name) \(story.user.surname)")
+                                Text("\(story.name) \(story.surname)")
                                     
                                   Spacer()
-                                HStack{
+                                HStack(spacing:2){
                                     Image(systemName: "mappin.and.ellipse")
-                                    Text(story.locationInfo)
+                                    Text(story.stories.last?.locationInfo ?? "")
                                 }
                             }.foregroundStyle(.white)
                                 .font(.caption)
