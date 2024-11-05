@@ -12,14 +12,12 @@ struct AsyncImageLoad: View {
     var body: some View {
         AsyncImage(url: URL(string: imageURL)) { phase in
                  if let image = phase.image {
-                   
                      image
                          .resizable()
                          .scaledToFill()
                         
                  } else if phase.error != nil {
-                  
-                     Text("Görsel yüklenemedi.")
+                     Text(TextTheme.loadImageError.rawValue)
                          .foregroundColor(.red)
                          .font(.caption)
                  } else {

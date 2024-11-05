@@ -9,10 +9,11 @@ import Foundation
 import _MapKit_SwiftUI
 
 class BigMapViewModel : ObservableObject {
-    @Published var nearByCities:[NearByPlace] = []
+    @Published private(set) var nearByCities:[NearByPlace] = []
     @Published var toDetailView:Bool = false
-    private var service:BigMapServiceProtocol = BigMapService()
+    private let service:BigMapServiceProtocol = BigMapService()
     private let locationManager:LocationManagerProtocol = LocationManager()
+    
     func task()  async{
        await fetchNearByCities(city: "Istanbul")
     }
@@ -27,14 +28,11 @@ class BigMapViewModel : ObservableObject {
             DispatchQueue.main.async { [weak self] in
                 guard let self = self else {return}
                 nearByCities = list
-                
             }
         }catch{
             DispatchQueue.main.async { [weak self] in
                 guard let self = self else {return}
                 nearByCities = []
-                
-                
             }
         }
     }

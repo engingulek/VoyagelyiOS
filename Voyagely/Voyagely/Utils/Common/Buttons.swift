@@ -23,7 +23,6 @@ struct BackButton: View {
                 .foregroundStyle(.black)
                 .fontWeight(.semibold)
         }
-
     }
 }
 

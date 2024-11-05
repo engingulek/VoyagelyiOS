@@ -8,19 +8,15 @@
 import Foundation
 import SwiftUI
 protocol HomeViewRouterProtocol {
-    
-    func toDetailView(id:Int?) -> AnyView
+    func toDetailView(id:Int) -> AnyView
     func toBigMapView() -> AnyView
- 
-    
 }
 
 class HomeViewRouter : HomeViewRouterProtocol{
 
     private var appContainer = AppContainer()
-  
     
-    func toDetailView(id: Int?) -> AnyView {
+    func toDetailView(id: Int) -> AnyView {
         let view = DetailView(viewModel: appContainer.resolve(DetailViewModel.self))
         view.viewModel.getAdId(id: id)
         return AnyView(view)

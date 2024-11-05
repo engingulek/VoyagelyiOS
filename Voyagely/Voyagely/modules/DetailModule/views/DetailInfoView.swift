@@ -47,19 +47,17 @@ struct DetailInfoView: View {
                 Text(TextTheme.adress.rawValue)
                     .font(.title2)
                     .fontWeight(.semibold)
-                  
                 
                 ImageAndText(image: "map",
                              title: viewModel.detail?.detailAdres ?? "")
                 
                 .onTapGesture {
                     viewModel.openMap(latitude: viewModel.detail?.latitude ?? 0.0, 
-                                      longigute: viewModel.detail?.longitude ?? 0.0, name: viewModel.detail?.name ?? "")
+                                      longigute: viewModel.detail?.longitude ?? 0.0, 
+                                      name: viewModel.detail?.name ?? "")
                 }
                 .underline()
-                
             }
-            
             VStack {
                 Text(TextTheme.description.rawValue)
                     .font(.title2)
@@ -68,8 +66,6 @@ struct DetailInfoView: View {
             }.padding()
         }
     }
-    
-   
 }
 
 #Preview {

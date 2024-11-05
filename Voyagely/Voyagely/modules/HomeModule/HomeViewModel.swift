@@ -12,28 +12,21 @@ class HomeViewModel : ObservableObject {
     
     private let service : HomeServiceProtocol
     private let locationManager:LocationManagerProtocol = LocationManager()
-    @Published var categoires:[Category] = []
-    @Published var nearByCities: [NearByPlace] = []
-    @Published var toDetailView:Bool = false
-    @Published var toBigMapView:Bool = false
+    @Published private(set) var categoires:[Category] = []
+    @Published  private(set) var nearByCities: [NearByPlace] = []
+    @Published   var toDetailView:Bool = false
+    @Published  var toBigMapView:Bool = false
+    @Published private(set) var loadingAction:Bool = true
+    @Published private(set) var selectedCategoryId : Int = 1
+    @Published private(set) var errorState:Bool = false
     
-    
-    @Published var loadingAction:Bool = true
-    @Published var selectedCategoryId : Int = 1
-    var selectedId:Int?
+    var selectedPlaceId:Int = -1
     private var tempsNearbyPlace:[NearByPlace] = []
     
     init(service: HomeServiceProtocol) {
         self.service = service
     }
-   
     
-    private func getLocationInfo(){
-        let locationInfo = locationManager.locationInfo
-       
-    }
-    
-        
     private func fetchCategories() async {
         do{
             let list = try await service.getCategories()
@@ -41,6 +34,7 @@ class HomeViewModel : ObservableObject {
                 guard let self = self else {return}
                 categoires = list
                 loadingAction = false
+                errorState = false
                 
             }
         }catch{
@@ -48,6 +42,7 @@ class HomeViewModel : ObservableObject {
                 guard let self = self else {return}
                 categoires = []
                 loadingAction = false
+                errorState = true
                 
             }
         }
@@ -61,6 +56,7 @@ class HomeViewModel : ObservableObject {
                 nearByCities = list
                 tempsNearbyPlace = nearByCities
                 loadingAction = false
+                errorState = false
                 
             }
         }catch{
@@ -68,28 +64,19 @@ class HomeViewModel : ObservableObject {
                 guard let self = self else {return}
                 nearByCities = []
                 loadingAction = false
-                
+                errorState = true
             }
         }
     }
-    
-   
-    
-  
 }
 
 
 extension HomeViewModel {
     
     func task() async {
-        // fetchStroies()
+        let locationInfo = self.locationManager.locationInfo
         await fetchCategories()
-        
-        await fetchNearByCities(city: "Istanbul")
-    }
-    
-    func onAppear(){
-        getLocationInfo()
+        await fetchNearByCities(city: locationInfo.city)
     }
     
     func onTappedGestureCategory(selectedId:Int) {
@@ -102,19 +89,18 @@ extension HomeViewModel {
     }
     
     func onTapGesturePlace(id:Int){
-        selectedId = id
+        selectedPlaceId = id
         toDetailView = true
     }
     
     func onTappedOpenBigMapButton(){
         toBigMapView = true
     }
-   
     
     func calculateDistance(longitude:Double,latitude:Double) -> String{
         
         let distance = locationManager.calculateDistance(latitude: latitude,
                                                          longitude: longitude)
-       return distance
+        return distance
     }
 }

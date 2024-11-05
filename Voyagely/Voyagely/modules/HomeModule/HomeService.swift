@@ -10,11 +10,12 @@ import Foundation
 protocol HomeServiceProtocol {
     func getCategories() async throws -> [Category]
     func getNearByCity(_ city:String) async throws -> [NearByPlace]
-    
 }
 
 class HomeService : HomeServiceProtocol {
+    
     private let networkManager:NetworkManagerProtocol = NetworkManager()
+    //MARK: getCategories
     func getCategories() async throws -> [Category] {
         
         do{
@@ -23,9 +24,8 @@ class HomeService : HomeServiceProtocol {
         }catch{
             throw error
         }
-
     }
-    
+    //MARK: getNearByCity
     func getNearByCity(_ city: String) async throws -> [NearByPlace] {
         do{
             let response = try await networkManager.fetch(target: .nearBy(city), responseClass: [NearByPlace].self)
@@ -34,7 +34,4 @@ class HomeService : HomeServiceProtocol {
             throw error
         }
     }
-    
-    
-    
 }

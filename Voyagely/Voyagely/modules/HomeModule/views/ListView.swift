@@ -9,7 +9,6 @@ import SwiftUI
 
 struct ListView: View {
     @ObservedObject var viewModel:HomeViewModel
-    var router : HomeViewRouterProtocol
     let columns = [
         GridItem(.flexible()),
         GridItem(.flexible())
@@ -89,5 +88,5 @@ private struct ListViewCell : View {
 }
 
 #Preview {
-    ListView(viewModel: HomeViewModel(service: HomeService()), router: HomeViewRouter())
+    ListView(viewModel: HomeViewModel(service: HomeService()))
 }
