@@ -49,10 +49,6 @@ class AppContainer {
             return BigMapRouter()
         }
         
-        //ShareViewModel
-        container.register(ShareViewModel.self) { resolver in
-            return ShareViewModel()
-        }
     }
 
     

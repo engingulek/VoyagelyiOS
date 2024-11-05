@@ -10,6 +10,7 @@ import Foundation
 public enum NetworkPath {
     case categories
     case nearBy(String)
+    case detail(Int)
 }
 
 
@@ -24,6 +25,8 @@ extension NetworkPath : TargetType {
             Constants.category.rawValue + Constants.getAll.rawValue
         case .nearBy(let city):
             Constants.place.rawValue + Constants.nearBy.rawValue + "?city=\(city)"
+        case .detail(let id):
+            Constants.place.rawValue + Constants.detail.rawValue + "?id=\(id)"
         }
         
     }

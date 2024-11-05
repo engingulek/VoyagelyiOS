@@ -11,7 +11,7 @@ protocol HomeViewRouterProtocol {
     
     func toDetailView(id:Int?) -> AnyView
     func toBigMapView() -> AnyView
-    func toStoryView(share:Share?) -> AnyView
+ 
     
 }
 
@@ -22,6 +22,7 @@ class HomeViewRouter : HomeViewRouterProtocol{
     
     func toDetailView(id: Int?) -> AnyView {
         let view = DetailView(viewModel: appContainer.resolve(DetailViewModel.self))
+        view.viewModel.getAdId(id: id)
         return AnyView(view)
     }
     
@@ -30,13 +31,6 @@ class HomeViewRouter : HomeViewRouterProtocol{
             viewModel: appContainer.resolve(BigMapViewModel.self),
             router: appContainer.resolve(BigMapRouter.self)
         )
-        return AnyView(view)
-    }
-    
-    func toStoryView(share:Share?) -> AnyView {
-        
-        let view = ShareView(viewModel: appContainer.resolve(ShareViewModel.self))
-        view.viewModel.fetchShare(share: share)
         return AnyView(view)
     }
 }

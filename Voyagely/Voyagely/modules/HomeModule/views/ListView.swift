@@ -19,11 +19,16 @@ struct ListView: View {
             PrimaryTitle(text: TextTheme.nearBy.rawValue)
             if viewModel.nearByCities.isEmpty {
                 VStack(alignment:.center){
-                    Text("Place Not Fount")
-                        .foregroundStyle(.red)
-                        .fontWeight(.semibold)
-                        .font(.title2)
-                    
+                    Spacer()
+                    HStack {
+                        Spacer()
+                        Text(TextTheme.errorMessageEmpty.rawValue)
+                            .foregroundStyle(.red)
+                            .fontWeight(.semibold)
+                            .font(.title2)
+                        Spacer()
+                    }
+                    Spacer()
                 }
                
             }else{
@@ -63,7 +68,7 @@ private struct ListViewCell : View {
                     Text(place.name)
                         .font(.title3)
                     HStack(spacing:1) {
-                        ForEach(Array(repeating: "$", count: place.priceScale - 1), id: \.self) { price in
+                        ForEach(Array(repeating: "$", count: place.priceScale), id: \.self) { price in
                             Text(price)
                         }
                     }

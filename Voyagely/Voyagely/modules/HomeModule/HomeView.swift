@@ -28,7 +28,6 @@ struct HomeView: View {
                     VStack{
                         ZStack(alignment:.bottom) {
                             ScrollView {
-                                ShareDesign(viewModel: viewModel)
                                 CategoryList(viewModel: viewModel)
                                 ListView(viewModel: viewModel,
                                          router: router)
@@ -61,8 +60,6 @@ struct HomeView: View {
                 router.toBigMapView()
             }.navigationDestination(isPresented: $viewModel.toDetailView) {
                 router.toDetailView(id: viewModel.selectedId)
-            }.fullScreenCover(isPresented: $viewModel.toStoryView) {
-                router.toStoryView(share: viewModel.selectedShare)
             }
         }
     }

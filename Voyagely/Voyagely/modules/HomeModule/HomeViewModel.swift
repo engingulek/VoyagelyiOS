@@ -14,15 +14,13 @@ class HomeViewModel : ObservableObject {
     private let locationManager:LocationManagerProtocol = LocationManager()
     @Published var categoires:[Category] = []
     @Published var nearByCities: [NearByPlace] = []
-    @Published var usershare:[UserShare] = []
     @Published var toDetailView:Bool = false
     @Published var toBigMapView:Bool = false
-    @Published var toStoryView:Bool = false
-    @Published var errorState:Bool = false
+    
+    
     @Published var loadingAction:Bool = true
     @Published var selectedCategoryId : Int = 1
     var selectedId:Int?
-    var selectedShare:Share?
     private var tempsNearbyPlace:[NearByPlace] = []
     
     init(service: HomeServiceProtocol) {
@@ -42,7 +40,6 @@ class HomeViewModel : ObservableObject {
             DispatchQueue.main.async { [weak self] in
                 guard let self = self else {return}
                 categoires = list
-                errorState = false
                 loadingAction = false
                 
             }
@@ -50,7 +47,6 @@ class HomeViewModel : ObservableObject {
             DispatchQueue.main.async { [weak self] in
                 guard let self = self else {return}
                 categoires = []
-                errorState = true
                 loadingAction = false
                 
             }
@@ -64,7 +60,6 @@ class HomeViewModel : ObservableObject {
                 guard let self = self else {return}
                 nearByCities = list
                 tempsNearbyPlace = nearByCities
-                errorState = false
                 loadingAction = false
                 
             }
@@ -72,16 +67,13 @@ class HomeViewModel : ObservableObject {
             DispatchQueue.main.async { [weak self] in
                 guard let self = self else {return}
                 nearByCities = []
-                errorState = true
                 loadingAction = false
                 
             }
         }
     }
     
-    private func fetchStroies(){
-        usershare = service.getUserShare()
-    }
+   
     
   
 }
@@ -117,10 +109,7 @@ extension HomeViewModel {
     func onTappedOpenBigMapButton(){
         toBigMapView = true
     }
-    func onTapGestureShare(share:Share){
-        selectedShare = share
-        toStoryView = true
-    }
+   
     
     func calculateDistance(longitude:Double,latitude:Double) -> String{
         

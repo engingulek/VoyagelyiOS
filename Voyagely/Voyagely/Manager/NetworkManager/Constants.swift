@@ -13,4 +13,5 @@ enum Constants : String {
     case category = "/category"
     case place = "/place"
     case nearBy = "/nearBy"
+    case detail = "/detail"
 }

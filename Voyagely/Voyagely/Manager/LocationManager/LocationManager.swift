@@ -47,18 +47,18 @@ class LocationManager :NSObject, LocationManagerProtocol, CLLocationManagerDeleg
         destinationMapItem.name = name
         
         destinationMapItem.openInMaps(launchOptions: [
-            MKLaunchOptionsDirectionsModeKey: MKLaunchOptionsDirectionsModeDriving
+            MKLaunchOptionsDirectionsModeKey: MKLaunchOptionsDirectionsModeWalking
         ])
     }
     
     func calculateDistance(latitude: Double, longitude: Double) -> String {
         guard let currentLocation = currentLocation else {return ""}
         let ditance = currentLocation.distance(from: CLLocation(latitude: latitude, longitude: longitude))
-        
         if ditance < 1 {
-            return   String(format: "%.2f", ditance) + "m"
-        }else{
-            return  String(format: "%.2f", ditance) + "km"
+            return  String(format: "%.1f", ditance / 1000) + "km"
+        }
+        else{
+            return   String(format: "%.1f", ditance ) + "m"
         }
     }
     

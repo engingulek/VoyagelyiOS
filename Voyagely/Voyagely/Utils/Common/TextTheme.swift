@@ -16,4 +16,5 @@ enum TextTheme : String {
     case adress = "Adress"
     case description = "Description"
     case reviews = "Reviews"
+    case errorMessageEmpty = "Place Not Found"
 }
