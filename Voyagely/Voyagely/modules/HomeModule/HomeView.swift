@@ -26,7 +26,6 @@ struct HomeView: View {
                     ProgressView()
                 }else{
                     VStack{
-                        ToolbarDesign(viewModel: viewModel)
                         ZStack(alignment:.bottom) {
                             ScrollView {
                                 ShareDesign(viewModel: viewModel)
@@ -58,9 +57,6 @@ struct HomeView: View {
                 
                 await viewModel.task()
                 
-            }
-            .navigationDestination(isPresented: $viewModel.searchToView) {
-                router.toSearchView(text: viewModel.searchText)
             }.navigationDestination(isPresented: $viewModel.toBigMapView) {
                 router.toBigMapView()
             }.navigationDestination(isPresented: $viewModel.toDetailView) {

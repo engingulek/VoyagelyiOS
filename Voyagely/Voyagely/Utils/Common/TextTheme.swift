@@ -10,7 +10,6 @@ import Foundation
 enum TextTheme : String {
     case openBigMap = "Open Big Map"
     case yourLocation = "Your Location"
-    case searchText = "Search..."
     case categories = "Categories"
     case sharies = "Sharies"
     case nearBy = "NearBy"

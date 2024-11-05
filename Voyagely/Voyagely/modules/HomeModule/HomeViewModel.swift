@@ -15,15 +15,12 @@ class HomeViewModel : ObservableObject {
     @Published var categoires:[Category] = []
     @Published var nearByCities: [NearByPlace] = []
     @Published var usershare:[UserShare] = []
-    @Published var searchText:String = ""
-    @Published var searchToView : Bool = false
     @Published var toDetailView:Bool = false
     @Published var toBigMapView:Bool = false
     @Published var toStoryView:Bool = false
     @Published var errorState:Bool = false
     @Published var loadingAction:Bool = true
     @Published var selectedCategoryId : Int = 1
-    @Published var locationInfo:(city:String,country:String) = ("","")
     var selectedId:Int?
     var selectedShare:Share?
     private var tempsNearbyPlace:[NearByPlace] = []
@@ -101,13 +98,6 @@ extension HomeViewModel {
     
     func onAppear(){
         getLocationInfo()
-    }
-    
-    func searchAction(searchText:String){
-        self.searchText = searchText
-        if searchText.count > 3{
-            searchToView = true
-        }
     }
     
     func onTappedGestureCategory(selectedId:Int) {
