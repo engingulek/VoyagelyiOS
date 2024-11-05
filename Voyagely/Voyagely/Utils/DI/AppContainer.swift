@@ -29,12 +29,6 @@ class AppContainer {
             HomeViewModel(service: resolver.resolve(HomeService.self)!)
         }
         
-        // SearchViewModel
-        container.register(SearchViewModel.self) { resolver in
-            SearchViewModel()
-            
-        }
-        
         // HomeViewRouter
         container.register(HomeViewRouter.self) { resolver in
             HomeViewRouter()
@@ -55,10 +49,6 @@ class AppContainer {
             return BigMapRouter()
         }
         
-        //ShareViewModel
-        container.register(ShareViewModel.self) { resolver in
-            return ShareViewModel()
-        }
     }
 
     

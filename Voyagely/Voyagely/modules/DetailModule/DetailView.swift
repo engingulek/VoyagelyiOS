@@ -9,13 +9,11 @@ import SwiftUI
 
 struct DetailView: View {
     @ObservedObject var viewModel:DetailViewModel
-    
-    let images = ["test1","test1","test1","test1"]
     var body: some View {
         ScrollView {
             VStack {
                 ZStack(alignment:.top) {
-                    ShowImages()
+                    ShowImages(images: viewModel.detail?.imageList ?? ["","","",""])
                     HStack{
                         BackButton()
                         Spacer()
@@ -24,14 +22,7 @@ struct DetailView: View {
                 
                 DetailInfoView(viewModel: viewModel)
                 
-                VStack{
-                    Text(TextTheme.reviews.rawValue)
-                        .font(.title3)
-                        .fontWeight(.semibold)
-                    ForEach(0..<5){_ in
-                       ReviewCell()
-                    }
-                }
+               
             }
         }
         .navigationBarHidden(true)

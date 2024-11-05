@@ -11,7 +11,7 @@ import MapKit
 struct HomeView: View {
     @ObservedObject var viewModel:HomeViewModel
     private var router : HomeViewRouterProtocol
-
+    
     
     init(viewModel: HomeViewModel, router: HomeViewRouterProtocol) {
         self.viewModel = viewModel
@@ -19,43 +19,47 @@ struct HomeView: View {
     }
     var body: some View {
         NavigationStack {
+           
+            
             ZStack {
-                VStack{
-                    ToolbarDesign(viewModel: viewModel)
-                    ZStack(alignment:.bottom) {
-                        ScrollView {
-                            ShareDesign(viewModel: viewModel)
-                            CategoryList(viewModel: viewModel)
-                            ListView(viewModel: viewModel,
-                                     router: router)
+                if viewModel.loadingAction {
+                    ProgressView()
+                }else{
+                    VStack{
+                        ZStack(alignment:.bottom) {
+                            ScrollView {
+                                CategoryList(viewModel: viewModel)
+                                ListView(viewModel: viewModel,
+                                         router: router)
+                            }
+                            Button {
+                                viewModel.onTappedOpenBigMapButton()
+                            } label: {
+                                Text(TextTheme.openBigMap.rawValue)
+                            }
+                            .padding()
+                            .background(.blue)
+                            .foregroundStyle(.white)
+                            .cornerRadius(10)
+                            .padding(.vertical)
                         }
-                        Button {
-                            viewModel.onTappedOpenBigMapButton()
-                        } label: {
-                            Text(TextTheme.openBigMap.rawValue)
-                        }
-                        .padding()
-                        .background(.blue)
-                        .foregroundStyle(.white)
-                        .cornerRadius(10)
-                        .padding(.vertical)
+                        
                     }
-                   
                 }
+              
             }
             .background(Color.gray.opacity(0.1))
-            
             .onAppear{
                 viewModel.onAppear()
             }
-            .navigationDestination(isPresented: $viewModel.searchToView) {
-                router.toSearchView(text: viewModel.searchText)
+            .task{
+                
+                await viewModel.task()
+                
             }.navigationDestination(isPresented: $viewModel.toBigMapView) {
                 router.toBigMapView()
             }.navigationDestination(isPresented: $viewModel.toDetailView) {
                 router.toDetailView(id: viewModel.selectedId)
-            }.fullScreenCover(isPresented: $viewModel.toStoryView) {
-                router.toStoryView(share: viewModel.selectedShare)
             }
         }
     }

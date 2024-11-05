@@ -8,22 +8,18 @@
 import SwiftUI
 
 struct AnnotionView: View {
-    let place:PlaceInfoOnMap
+    let place:NearByPlace
     var body: some View {
         VStack(spacing:2){
-            Image("test1")
-                .resizable()
+            AsyncImageLoad(imageURL: place.baseImage)
                 .frame(width: 80,height: 50)
             Text(place.name)
-            Text(place.categoryName)
+            Text(place.category.name)
                 .font(.caption)
             HStack {
                 HStack(spacing:1){
-                    Text(String(format: "%.1f", place.rating))
+                    Text("\(place.rating) Rating")
                     Image(systemName: "star.fill")
-                        .foregroundStyle(.yellow)
-                    Text("\(place.comment)")
-                    Image(systemName: "message.fill")
                         .foregroundStyle(.yellow)
                 }
                     .font(.caption)
@@ -35,6 +31,4 @@ struct AnnotionView: View {
     }
 }
 
-#Preview {
-    AnnotionView(place: PlaceInfoOnMap.defaultData)
-}
+

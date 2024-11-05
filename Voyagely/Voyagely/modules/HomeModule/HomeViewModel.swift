@@ -6,44 +6,98 @@
 //
 
 import Foundation
+import CoreLocation
 
 class HomeViewModel : ObservableObject {
     
     private let service : HomeServiceProtocol
-    
+    private let locationManager:LocationManagerProtocol = LocationManager()
     @Published var categoires:[Category] = []
-    @Published var usershare:[UserShare] = []
-    @Published var searchText:String = ""
-    @Published var searchToView : Bool = false
+    @Published var nearByCities: [NearByPlace] = []
     @Published var toDetailView:Bool = false
     @Published var toBigMapView:Bool = false
-    @Published var toStoryView:Bool = false
-    @Published var nearByPlaces:[PlaceInfoOnMap] = []
+    
+    
+    @Published var loadingAction:Bool = true
+    @Published var selectedCategoryId : Int = 1
     var selectedId:Int?
-    var selectedShare:Share?
+    private var tempsNearbyPlace:[NearByPlace] = []
     
     init(service: HomeServiceProtocol) {
         self.service = service
     }
+   
     
-    func onAppear() {
-        fetchStroies()
-        fetchCategories()
-        fetchNearByLocation()
+    private func getLocationInfo(){
+        let locationInfo = locationManager.locationInfo
+       
     }
     
-    private func fetchCategories(){
-        categoires = service.getCategories()
+        
+    private func fetchCategories() async {
+        do{
+            let list = try await service.getCategories()
+            DispatchQueue.main.async { [weak self] in
+                guard let self = self else {return}
+                categoires = list
+                loadingAction = false
+                
+            }
+        }catch{
+            DispatchQueue.main.async { [weak self] in
+                guard let self = self else {return}
+                categoires = []
+                loadingAction = false
+                
+            }
+        }
     }
     
-    private func fetchStroies(){
-        usershare = service.getUserShare()
+    private func fetchNearByCities(city:String) async {
+        do{
+            let list = try await service.getNearByCity(city)
+            DispatchQueue.main.async { [weak self] in
+                guard let self = self else {return}
+                nearByCities = list
+                tempsNearbyPlace = nearByCities
+                loadingAction = false
+                
+            }
+        }catch{
+            DispatchQueue.main.async { [weak self] in
+                guard let self = self else {return}
+                nearByCities = []
+                loadingAction = false
+                
+            }
+        }
     }
     
-    func searchAction(searchText:String){
-        self.searchText = searchText
-        if searchText.count > 3{
-            searchToView = true
+   
+    
+  
+}
+
+
+extension HomeViewModel {
+    
+    func task() async {
+        // fetchStroies()
+        await fetchCategories()
+        
+        await fetchNearByCities(city: "Istanbul")
+    }
+    
+    func onAppear(){
+        getLocationInfo()
+    }
+    
+    func onTappedGestureCategory(selectedId:Int) {
+        selectedCategoryId =  selectedId
+        if selectedId == 1 {
+            nearByCities = tempsNearbyPlace
+        }else{
+            nearByCities = tempsNearbyPlace.filter{ $0.category.id == selectedId}
         }
     }
     
@@ -55,20 +109,12 @@ class HomeViewModel : ObservableObject {
     func onTappedOpenBigMapButton(){
         toBigMapView = true
     }
-    func onTapGestureShare(share:Share){
-        selectedShare = share
-        toStoryView = true
-    }
+   
     
-    private func fetchNearByLocation(){
-        nearByPlaces = [
-            .init(id: 1, imageURL: "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1a/97/1f/fc/main-lobby.jpg?w=600&h=400&s=1",
-                  name: "Light Soon", categoryName: "Restaurant", rating: 4.5, comment: 20, latitude: 40.99955, longitude: 29.04578),
-            
-                .init(id: 2, imageURL: "https://media-cdn.tripadvisor.com/media/photo-s/0a/76/07/ad/my-chef-kadikoy-istanbul.jpg", 
-                      name: "Our Bar", categoryName: "Bar", rating: 4.0, comment:40, latitude: 41.00024, longitude: 29.04318)
-        ]
+    func calculateDistance(longitude:Double,latitude:Double) -> String{
+        
+        let distance = locationManager.calculateDistance(latitude: latitude,
+                                                         longitude: longitude)
+       return distance
     }
 }
-
-

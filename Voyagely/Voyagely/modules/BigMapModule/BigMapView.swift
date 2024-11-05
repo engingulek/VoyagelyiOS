@@ -22,8 +22,9 @@ struct BigMapView: View {
         ZStack{
             Map(position: $cameraPostion){
                 UserAnnotation()
-                ForEach(viewModel.allOnCity,id: \.id) { place in
-                    Annotation("",coordinate: place.getAdCLLocationCoordinate2D()){
+                ForEach(viewModel.nearByCities,id: \.id) { place in
+                    Annotation("",coordinate: CLLocationCoordinate2D(latitude: place.latitude,
+                                                                     longitude: place.longitude)){
                         AnnotionView(place: place)
                     }
                 }
@@ -41,8 +42,8 @@ struct BigMapView: View {
         } .navigationBarHidden(true)
             .ignoresSafeArea()
         
-            .onAppear{
-                viewModel.onAppear()
+            .task{
+               await viewModel.task()
                 
             }.navigationDestination(isPresented: $viewModel.toDetailView) {
                 router.toDetail()

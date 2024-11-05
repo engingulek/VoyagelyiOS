@@ -8,18 +8,16 @@
 import SwiftUI
 
 struct ShowImages: View {
-    let images = ["test1","test1","test1","test1"]
+    let images : [String]
     var body: some View {
         VStack {
         
             TabView {
-                ForEach(0..<4, id: \.self) { i in
+                ForEach(0..<images.count, id: \.self) { i in
                     ZStack(alignment:.bottomTrailing) {
-                        Image("test1")
-                            .resizable()
-                            .scaledToFill()
+                        AsyncImageLoad(imageURL: images[i])
                             .frame(width: UIScreen.main.bounds.width - 20, height: 350)
-                        Text("\(i+1)/\(4)")
+                        Text("\(i+1)/\(images.count)")
                             .padding()
                             .background(.white)
                             .cornerRadius(10)
@@ -35,6 +33,4 @@ struct ShowImages: View {
     }
 }
 
-#Preview {
-    ShowImages()
-}
+

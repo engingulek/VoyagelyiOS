@@ -9,24 +9,20 @@ import Foundation
 import SwiftUI
 protocol HomeViewRouterProtocol {
     
-    func toSearchView(text:String) -> AnyView
     func toDetailView(id:Int?) -> AnyView
     func toBigMapView() -> AnyView
-    func toStoryView(share:Share?) -> AnyView
+ 
     
 }
 
 class HomeViewRouter : HomeViewRouterProtocol{
 
     private var appContainer = AppContainer()
-    func toSearchView(text:String) -> AnyView {
-        let view = SearchView(viewModel: appContainer.resolve(SearchViewModel.self))
-        view.viewModel.getSearchText(text: text)
-        return AnyView(view)
-    }
+  
     
     func toDetailView(id: Int?) -> AnyView {
         let view = DetailView(viewModel: appContainer.resolve(DetailViewModel.self))
+        view.viewModel.getAdId(id: id)
         return AnyView(view)
     }
     
@@ -35,13 +31,6 @@ class HomeViewRouter : HomeViewRouterProtocol{
             viewModel: appContainer.resolve(BigMapViewModel.self),
             router: appContainer.resolve(BigMapRouter.self)
         )
-        return AnyView(view)
-    }
-    
-    func toStoryView(share:Share?) -> AnyView {
-        
-        let view = ShareView(viewModel: appContainer.resolve(ShareViewModel.self))
-        view.viewModel.fetchShare(share: share)
         return AnyView(view)
     }
 }
