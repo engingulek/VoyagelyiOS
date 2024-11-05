@@ -26,21 +26,12 @@ class HomeViewModel : ObservableObject {
     @Published var locationInfo:(city:String,country:String) = ("","")
     var selectedId:Int?
     var selectedShare:Share?
+    private var tempsNearbyPlace:[NearByPlace] = []
     
     init(service: HomeServiceProtocol) {
         self.service = service
     }
-    
-    func task() async {
-        // fetchStroies()
-        await fetchCategories()
-        
-        await fetchNearByCities(city: "Istanbul")
-    }
-    
-    func onAppear(){
-        getLocationInfo()
-    }
+   
     
     private func getLocationInfo(){
         let locationInfo = locationManager.locationInfo
@@ -75,6 +66,7 @@ class HomeViewModel : ObservableObject {
             DispatchQueue.main.async { [weak self] in
                 guard let self = self else {return}
                 nearByCities = list
+                tempsNearbyPlace = nearByCities
                 errorState = false
                 loadingAction = false
                 
@@ -94,6 +86,23 @@ class HomeViewModel : ObservableObject {
         usershare = service.getUserShare()
     }
     
+  
+}
+
+
+extension HomeViewModel {
+    
+    func task() async {
+        // fetchStroies()
+        await fetchCategories()
+        
+        await fetchNearByCities(city: "Istanbul")
+    }
+    
+    func onAppear(){
+        getLocationInfo()
+    }
+    
     func searchAction(searchText:String){
         self.searchText = searchText
         if searchText.count > 3{
@@ -103,6 +112,11 @@ class HomeViewModel : ObservableObject {
     
     func onTappedGestureCategory(selectedId:Int) {
         selectedCategoryId =  selectedId
+        if selectedId == 1 {
+            nearByCities = tempsNearbyPlace
+        }else{
+            nearByCities = tempsNearbyPlace.filter{ $0.category.id == selectedId}
+        }
     }
     
     func onTapGesturePlace(id:Int){
@@ -120,10 +134,8 @@ class HomeViewModel : ObservableObject {
     
     func calculateDistance(longitude:Double,latitude:Double) -> String{
         
-        let distance = locationManager.calculateDistance(latitude: latitude, 
+        let distance = locationManager.calculateDistance(latitude: latitude,
                                                          longitude: longitude)
        return distance
     }
 }
-
-

@@ -17,15 +17,27 @@ struct ListView: View {
     var body: some View {
         VStack{
             PrimaryTitle(text: TextTheme.nearBy.rawValue)
-            LazyVGrid(columns: columns) {
-                ForEach(viewModel.nearByCities,id:\.id) { place in
-                    ListViewCell(place: place,viewModel: viewModel)
-                        .padding(.horizontal)
-                        .onTapGesture {
-                            viewModel.onTapGesturePlace(id: 1)
-                        }
+            if viewModel.nearByCities.isEmpty {
+                VStack(alignment:.center){
+                    Text("Place Not Fount")
+                        .foregroundStyle(.red)
+                        .fontWeight(.semibold)
+                        .font(.title2)
+                    
+                }
+               
+            }else{
+                LazyVGrid(columns: columns) {
+                    ForEach(viewModel.nearByCities,id:\.id) { place in
+                        ListViewCell(place: place,viewModel: viewModel)
+                            .padding(.horizontal)
+                            .onTapGesture {
+                                viewModel.onTapGesturePlace(id: 1)
+                            }
+                    }
                 }
             }
+          
         }
     }
 }
