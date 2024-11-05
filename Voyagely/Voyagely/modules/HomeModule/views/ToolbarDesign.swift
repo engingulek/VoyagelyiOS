@@ -17,7 +17,7 @@ struct ToolbarDesign: View {
                     Text(TextTheme.yourLocation.rawValue)
                     HStack{
                         Image(systemName: "mappin.and.ellipse")
-                        Text("Istanbul,Türkiye")
+                        Text("\(viewModel.locationInfo.city),\(viewModel.locationInfo.country)")
                     }.fontWeight(.semibold)
                 }
                 Spacer()

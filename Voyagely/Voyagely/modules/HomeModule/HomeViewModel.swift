@@ -23,6 +23,7 @@ class HomeViewModel : ObservableObject {
     @Published var errorState:Bool = false
     @Published var loadingAction:Bool = true
     @Published var selectedCategoryId : Int = 1
+    @Published var locationInfo:(city:String,country:String) = ("","")
     var selectedId:Int?
     var selectedShare:Share?
     
@@ -30,15 +31,23 @@ class HomeViewModel : ObservableObject {
         self.service = service
     }
     
-    func onAppear() async {
+    func task() async {
         // fetchStroies()
         await fetchCategories()
-        await fetchNearByCities()
-        // fetchNearByLocation()
         
-        
+        await fetchNearByCities(city: "Istanbul")
     }
     
+    func onAppear(){
+        getLocationInfo()
+    }
+    
+    private func getLocationInfo(){
+        let locationInfo = locationManager.locationInfo
+       
+    }
+    
+        
     private func fetchCategories() async {
         do{
             let list = try await service.getCategories()
@@ -60,9 +69,9 @@ class HomeViewModel : ObservableObject {
         }
     }
     
-    private func fetchNearByCities() async {
+    private func fetchNearByCities(city:String) async {
         do{
-            let list = try await service.getNearByCity("Istanbul")
+            let list = try await service.getNearByCity(city)
             DispatchQueue.main.async { [weak self] in
                 guard let self = self else {return}
                 nearByCities = list
@@ -110,15 +119,10 @@ class HomeViewModel : ObservableObject {
     }
     
     func calculateDistance(longitude:Double,latitude:Double) -> String{
-        let currentLocation = CLLocation(latitude: 41.00048, longitude: 29.04426)
-        let ditance = currentLocation.distance(from: CLLocation(latitude: latitude, longitude: longitude))
         
-        if ditance < 1 {
-         return   String(format: "%.2f", ditance) + "m"
-        }else{
-          return  String(format: "%.2f", ditance) + "km"
-        }
-       
+        let distance = locationManager.calculateDistance(latitude: latitude, 
+                                                         longitude: longitude)
+       return distance
     }
 }
 

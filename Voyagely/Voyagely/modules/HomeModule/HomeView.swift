@@ -19,36 +19,44 @@ struct HomeView: View {
     }
     var body: some View {
         NavigationStack {
+           
+            
             ZStack {
-                VStack{
-                    ToolbarDesign(viewModel: viewModel)
-                    ZStack(alignment:.bottom) {
-                        ScrollView {
-                            ShareDesign(viewModel: viewModel)
-                            CategoryList(viewModel: viewModel)
-                            ListView(viewModel: viewModel,
-                                     router: router)
+                if viewModel.loadingAction {
+                    ProgressView()
+                }else{
+                    VStack{
+                        ToolbarDesign(viewModel: viewModel)
+                        ZStack(alignment:.bottom) {
+                            ScrollView {
+                                ShareDesign(viewModel: viewModel)
+                                CategoryList(viewModel: viewModel)
+                                ListView(viewModel: viewModel,
+                                         router: router)
+                            }
+                            Button {
+                                viewModel.onTappedOpenBigMapButton()
+                            } label: {
+                                Text(TextTheme.openBigMap.rawValue)
+                            }
+                            .padding()
+                            .background(.blue)
+                            .foregroundStyle(.white)
+                            .cornerRadius(10)
+                            .padding(.vertical)
                         }
-                        Button {
-                            viewModel.onTappedOpenBigMapButton()
-                        } label: {
-                            Text(TextTheme.openBigMap.rawValue)
-                        }
-                        .padding()
-                        .background(.blue)
-                        .foregroundStyle(.white)
-                        .cornerRadius(10)
-                        .padding(.vertical)
+                        
                     }
-                    
                 }
+              
             }
             .background(Color.gray.opacity(0.1))
-            
+            .onAppear{
+                viewModel.onAppear()
+            }
             .task{
                 
-                await viewModel.onAppear()
-                
+                await viewModel.task()
                 
             }
             .navigationDestination(isPresented: $viewModel.searchToView) {
