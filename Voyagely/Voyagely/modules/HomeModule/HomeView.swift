@@ -11,7 +11,7 @@ import MapKit
 struct HomeView: View {
     @ObservedObject var viewModel:HomeViewModel
     private var router : HomeViewRouterProtocol
-
+    
     
     init(viewModel: HomeViewModel, router: HomeViewRouterProtocol) {
         self.viewModel = viewModel
@@ -40,13 +40,16 @@ struct HomeView: View {
                         .cornerRadius(10)
                         .padding(.vertical)
                     }
-                   
+                    
                 }
             }
             .background(Color.gray.opacity(0.1))
             
-            .onAppear{
-                viewModel.onAppear()
+            .task{
+                
+                await viewModel.onAppear()
+                
+                
             }
             .navigationDestination(isPresented: $viewModel.searchToView) {
                 router.toSearchView(text: viewModel.searchText)

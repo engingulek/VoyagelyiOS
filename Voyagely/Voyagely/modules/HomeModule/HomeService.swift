@@ -8,20 +8,21 @@
 import Foundation
 
 protocol HomeServiceProtocol {
-    func getCategories() -> [Category]
+    func getCategories() async throws -> [Category]
     func getUserShare() -> [UserShare]
 }
 
 class HomeService : HomeServiceProtocol {
-    func getCategories() -> [Category] {
-        let list :[Category] = [
-             .init(id: 1, name: "Caffe"),
-             .init(id: 3, name: "Restaurnat"),
-             .init(id: 4, name: "Bar")
-             
-         ]
+    private let networkManager:NetworkManagerProtocol = NetworkManager()
+    func getCategories() async throws -> [Category] {
         
-        return list
+        do{
+            let response = try await networkManager.fetch(target: .categories, responseClass: [Category].self)
+            return response
+        }catch{
+            throw error
+        }
+
     }
     
     func getUserShare() ->  [UserShare] {

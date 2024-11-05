@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Category {
+struct Category : Decodable {
     let id:Int
     let name:String
 }

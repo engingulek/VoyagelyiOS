@@ -12,18 +12,22 @@ struct CategoryList: View {
     var body: some View {
         VStack(alignment:.center,spacing: 15){
             PrimaryTitle(text: TextTheme.categories.rawValue)
-            HStack {
-                ForEach(viewModel.categoires,id: \.id){ category in
-                    Text(category.name)
-                        .padding()
-                        .background(Color.white)
-                        .cornerRadius(20)
-                        .overlay(
-                            RoundedRectangle(cornerRadius: 20)
-                                .stroke(Color.gray.opacity(0.7), lineWidth: 1)
-                        )
+                HStack {
+                    ForEach(viewModel.categoires,id: \.id){ category in
+                        Text(category.name)
+                            .padding()
+                            .background(viewModel.selectedCategoryId == category.id ? Color.blue : Color.white)
+                            .foregroundStyle(viewModel.selectedCategoryId == category.id ? Color.white : Color.black)
+                            .cornerRadius(20)
+                           
+                            .overlay(
+                                RoundedRectangle(cornerRadius: 20)
+                                    .stroke(Color.gray.opacity(0.7), lineWidth: 1)
+                            ).onTapGesture {
+                                viewModel.onTappedGestureCategory(selectedId: category.id)
+                            }
+                    }
                 }
-            }
         }.padding(.vertical)
      
     }
