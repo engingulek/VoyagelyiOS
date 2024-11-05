@@ -17,4 +17,6 @@ enum TextTheme : String {
     case description = "Description"
     case reviews = "Reviews"
     case errorMessageEmpty = "Place Not Found"
+    case errorMessageError = "Something went wrong"
+    case loadImageError = "Image could not be loaded"
 }

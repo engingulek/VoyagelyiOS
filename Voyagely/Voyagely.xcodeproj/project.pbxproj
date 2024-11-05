@@ -35,7 +35,6 @@
 		7D9FD6BF2CD539D5004F99BB /* NearByPlace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D9FD6BE2CD539D5004F99BB /* NearByPlace.swift */; };
 		7D9FD6C32CD55098004F99BB /* AnnotionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D9FD6C22CD55098004F99BB /* AnnotionView.swift */; };
 		7DC9A9602CD273E4009B3C82 /* VoyagelyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DC9A95F2CD273E4009B3C82 /* VoyagelyApp.swift */; };
-		7DC9A9622CD273E4009B3C82 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DC9A9612CD273E4009B3C82 /* ContentView.swift */; };
 		7DC9A9642CD273E6009B3C82 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7DC9A9632CD273E6009B3C82 /* Assets.xcassets */; };
 		7DC9A9672CD273E6009B3C82 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7DC9A9662CD273E6009B3C82 /* Preview Assets.xcassets */; };
 		7DC9A9702CD28A59009B3C82 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DC9A96F2CD28A59009B3C82 /* HomeView.swift */; };
@@ -76,7 +75,6 @@
 		7D9FD6C22CD55098004F99BB /* AnnotionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnotionView.swift; sourceTree = "<group>"; };
 		7DC9A95C2CD273E4009B3C82 /* Voyagely.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Voyagely.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7DC9A95F2CD273E4009B3C82 /* VoyagelyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoyagelyApp.swift; sourceTree = "<group>"; };
-		7DC9A9612CD273E4009B3C82 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		7DC9A9632CD273E6009B3C82 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7DC9A9662CD273E6009B3C82 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		7DC9A96F2CD28A59009B3C82 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
@@ -186,7 +184,6 @@
 				7DC9A9762CD29783009B3C82 /* Utils */,
 				7DC9A96D2CD289E5009B3C82 /* modules */,
 				7DC9A95F2CD273E4009B3C82 /* VoyagelyApp.swift */,
-				7DC9A9612CD273E4009B3C82 /* ContentView.swift */,
 				7DC9A9632CD273E6009B3C82 /* Assets.xcassets */,
 				7DC9A9652CD273E6009B3C82 /* Preview Content */,
 			);
@@ -382,7 +379,6 @@
 				7D9FD6BF2CD539D5004F99BB /* NearByPlace.swift in Sources */,
 				7DC9A9812CD2B5D1009B3C82 /* HomeViewModel.swift in Sources */,
 				7DF63D6C2CD7B30D00AA7EE3 /* DetailInfoView.swift in Sources */,
-				7DC9A9622CD273E4009B3C82 /* ContentView.swift in Sources */,
 				7D69FA5F2CD2BEB1000E7001 /* AppContainer.swift in Sources */,
 				7D69FA682CD2C350000E7001 /* Category_User.swift in Sources */,
 				7D7B094A2CD93EAF00479741 /* TextTheme.swift in Sources */,

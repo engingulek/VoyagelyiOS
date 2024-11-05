@@ -15,12 +15,12 @@ protocol LocationManagerProtocol:AnyObject{
     var cameraPostion : MapCameraPosition {get}
     var currentLocation:CLLocation? {get}
     func calculateDistance(latitude:Double,longitude:Double) -> String
-    var locationInfo : (String,String) {get}
+    var locationInfo : (city:String,disctrict:String) {get}
     
 }
 
 class LocationManager :NSObject, LocationManagerProtocol, CLLocationManagerDelegate {
-    @Published var locationInfo: (String, String) = ("","")
+    @Published var locationInfo: (city:String,disctrict:String) = ("","")
     private var locationManager: CLLocationManager
     var cameraPostion: MapCameraPosition =  .userLocation(fallback: .automatic)
     var currentLocation: CLLocation?
@@ -31,6 +31,7 @@ class LocationManager :NSObject, LocationManagerProtocol, CLLocationManagerDeleg
         locationManager.delegate = self
         locationManager.requestWhenInUseAuthorization()
         locationManager.startUpdatingLocation()
+        getLocationCityAndCountry()
         
     }
     
@@ -62,14 +63,13 @@ class LocationManager :NSObject, LocationManagerProtocol, CLLocationManagerDeleg
         }
     }
     
-    func getLocationCityAndCountry() {
+   private func getLocationCityAndCountry() {
         var city = ""
         var country = ""
         guard let currentLocation = currentLocation else {return }
         let geocoder = CLGeocoder()
         geocoder.reverseGeocodeLocation(currentLocation) { placemarks, error in
             guard error == nil else {
-                print("Geocoding error: \(error?.localizedDescription ?? "Unknown error")")
                 return
             }
             if let placemark = placemarks?.first {

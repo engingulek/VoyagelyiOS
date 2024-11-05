@@ -8,15 +8,19 @@
 import Foundation
 
 class DetailViewModel : ObservableObject {
-    private var locationManager:LocationManagerProtocol = LocationManager()
-    //TODO: Empty data will be added
-    @Published var detail : PlaceDetail?
     
-    private var service : DetailServiceProtocol = DetailService()
-    func getAdId(id:Int?) {
-        guard let id = id else {return}
-        Task{
-           await fetchDetail(id:id)
+    private var locationManager:LocationManagerProtocol = LocationManager()
+    @Published private(set) var detail : PlaceDetail?
+    @Published private(set) var errorState:Bool = false
+    private let service : DetailServiceProtocol = DetailService()
+    
+    func getAdId(id:Int) {
+        if id == -1 {
+            errorState = true
+        }else{
+            Task{
+               await fetchDetail(id:id)
+            }
         }
     }
     
@@ -26,23 +30,17 @@ class DetailViewModel : ObservableObject {
             DispatchQueue.main.async { [weak self] in
                 guard let self = self else {return}
                 detail = result
-                
-                
-                
+                errorState = false
             }
         }catch{
             DispatchQueue.main.async { [weak self] in
                 guard let self = self else {return}
-                detail = nil
-                
-                
+                errorState = true
             }
         }
     }
     
     func openMap(latitude:Double,longigute:Double,name:String){
-        print(latitude)
-        print(longigute)
         locationManager.goToCorrdianteOnOpen(latitude: latitude, longitude: longigute, name: name)
     }
     

@@ -31,7 +31,7 @@ struct BigMapView: View {
             }
             
             VStack(alignment:.leading) {
-               BackButton()
+                BackButton()
                     .padding(.vertical,15)
                 Spacer()
                 ListOnMap(viewModel: viewModel)
@@ -39,15 +39,14 @@ struct BigMapView: View {
                     .frame(height: 300)
                     .padding(.bottom,20)
             }
-        } .navigationBarHidden(true)
-            .ignoresSafeArea()
-        
-            .task{
-               await viewModel.task()
-                
-            }.navigationDestination(isPresented: $viewModel.toDetailView) {
-                router.toDetail()
-            }
+        }
+        .navigationBarHidden(true)
+        .ignoresSafeArea()
+        .task{
+            await viewModel.task()
+        }.navigationDestination(isPresented: $viewModel.toDetailView) {
+            router.toDetail()
+        }
     }
 }
 

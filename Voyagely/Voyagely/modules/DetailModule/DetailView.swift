@@ -11,18 +11,21 @@ struct DetailView: View {
     @ObservedObject var viewModel:DetailViewModel
     var body: some View {
         ScrollView {
-            VStack {
-                ZStack(alignment:.top) {
-                    ShowImages(images: viewModel.detail?.imageList ?? ["","","",""])
-                    HStack{
-                        BackButton()
-                        Spacer()
-                    }.padding()
+            if viewModel.errorState {
+                VStack{
+                    Text(TextTheme.errorMessageError.rawValue)
                 }
-                
-                DetailInfoView(viewModel: viewModel)
-                
-               
+            }else{
+                VStack {
+                    ZStack(alignment:.top) {
+                        ShowImages(images: viewModel.detail?.imageList ?? [])
+                        HStack{
+                            BackButton()
+                            Spacer()
+                        }.padding()
+                    }
+                    DetailInfoView(viewModel: viewModel)
+                }
             }
         }
         .navigationBarHidden(true)

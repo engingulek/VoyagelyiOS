@@ -11,7 +11,6 @@ struct ShowImages: View {
     let images : [String]
     var body: some View {
         VStack {
-        
             TabView {
                 ForEach(0..<images.count, id: \.self) { i in
                     ZStack(alignment:.bottomTrailing) {
@@ -29,7 +28,6 @@ struct ShowImages: View {
             .frame(width: UIScreen.main.bounds.width - 20, height: 350)
             .cornerRadius(20)
         }
-      
     }
 }
 

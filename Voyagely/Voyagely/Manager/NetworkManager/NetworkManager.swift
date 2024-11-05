@@ -45,7 +45,6 @@ public class NetworkManager : NetworkManagerProtocol {
         )
             .validate()
             .serializingDecodable(T.self)
-      print(url)
         
         let result = await request.response
         

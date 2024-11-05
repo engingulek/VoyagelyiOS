@@ -53,6 +53,4 @@ extension NetworkPath : TargetType {
             return [:]
         }
     }
-    
-    
 }

@@ -17,7 +17,7 @@ class AppContainer {
         container = Container()
         start() 
     }
-//TODO: TThis will be done better
+    
     func start() {
         //Home Service
         container.register(HomeService.self) { _ in

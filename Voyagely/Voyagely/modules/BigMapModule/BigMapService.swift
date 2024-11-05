@@ -21,6 +21,4 @@ class BigMapService : BigMapServiceProtocol {
             throw error
         }
     }
-    
-    
 }
