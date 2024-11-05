@@ -71,7 +71,7 @@ class HomeViewModel : ObservableObject {
         }catch{
             DispatchQueue.main.async { [weak self] in
                 guard let self = self else {return}
-                categoires = []
+                nearByCities = []
                 errorState = true
                 loadingAction = false
                 

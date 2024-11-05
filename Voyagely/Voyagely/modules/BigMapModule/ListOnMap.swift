@@ -14,8 +14,8 @@ struct ListOnMap: View {
         VStack(alignment:.leading) {
             ScrollView(.horizontal){
                 HStack(spacing:40){
-                    ForEach(0..<10, id: \.self){ index in
-                        ListSubView()
+                    ForEach(viewModel.nearByCities, id: \.id){ place in
+                        ListSubView(viewModel:viewModel,place: place)
                             .padding()
                             .background(.white)
                             .cornerRadius(10)
@@ -31,29 +31,29 @@ struct ListOnMap: View {
 
 
 private struct ListSubView : View {
+    @ObservedObject var viewModel : BigMapViewModel
+    let place:NearByPlace
     var body: some View {
         VStack(alignment:.leading){
-            Image("test1")
-                .resizable()
-                .aspectRatio(contentMode: .fill)
+            AsyncImageLoad(imageURL: place.baseImage)
                 .frame(width: 200)
                 .frame(height: 150)
                 .cornerRadius(10)
             
             VStack(alignment:.leading,spacing:10){
-                Text("Name Title")
+                Text(place.name)
                     .font(.title2)
-                Text("Kadıköy/Istanbul")
+                Text("\(place.district)")
                 VStack(alignment:.leading){
                     HStack{
                         Image(systemName: "star")
-                        Text("4,5 Rating")
+                        Text("\(place.rating) Rating")
                     }
                     HStack{
                         HStack{
                             Image(systemName: "mappin.and.ellipse")
-                            Text("1.2 Km")
-                            XSText(text: "20 Reviews")
+                            Text(viewModel.calculateDistance(longitude: place.longitude,
+                                                             latitude: place.latitude))
                         }
                     }
                     

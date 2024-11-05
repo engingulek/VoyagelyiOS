@@ -13,6 +13,7 @@
 		7D05C8992CDA54150080BB93 /* AlamofireDynamic in Frameworks */ = {isa = PBXBuildFile; productRef = 7D05C8982CDA54150080BB93 /* AlamofireDynamic */; };
 		7D05C89B2CDA543A0080BB93 /* NetworkPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D05C89A2CDA543A0080BB93 /* NetworkPath.swift */; };
 		7D05C89D2CDA54E90080BB93 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D05C89C2CDA54E90080BB93 /* NetworkManager.swift */; };
+		7D05C8A12CDA9B510080BB93 /* BigMapService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D05C8A02CDA9B510080BB93 /* BigMapService.swift */; };
 		7D5FDCD32CD5536B00F433A4 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D5FDCD22CD5536B00F433A4 /* DetailView.swift */; };
 		7D5FDCD52CD5565F00F433A4 /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D5FDCD42CD5565F00F433A4 /* DetailViewModel.swift */; };
 		7D5FDCD82CD55A9E00F433A4 /* BigMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D5FDCD72CD55A9E00F433A4 /* BigMapView.swift */; };
@@ -59,6 +60,7 @@
 		7D05C8932CDA53F50080BB93 /* TargetType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TargetType.swift; sourceTree = "<group>"; };
 		7D05C89A2CDA543A0080BB93 /* NetworkPath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkPath.swift; sourceTree = "<group>"; };
 		7D05C89C2CDA54E90080BB93 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		7D05C8A02CDA9B510080BB93 /* BigMapService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BigMapService.swift; sourceTree = "<group>"; };
 		7D5FDCD22CD5536B00F433A4 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		7D5FDCD42CD5565F00F433A4 /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
 		7D5FDCD72CD55A9E00F433A4 /* BigMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BigMapView.swift; sourceTree = "<group>"; };
@@ -142,6 +144,7 @@
 				7D5FDCD72CD55A9E00F433A4 /* BigMapView.swift */,
 				7D5FDCDC2CD55D6000F433A4 /* BigMapViewModel.swift */,
 				7D5FDCDE2CD566D800F433A4 /* BigMapRouter.swift */,
+				7D05C8A02CDA9B510080BB93 /* BigMapService.swift */,
 			);
 			path = BigMapModule;
 			sourceTree = "<group>";
@@ -411,6 +414,7 @@
 				7DF63D942CD7FEBA00AA7EE3 /* ListView.swift in Sources */,
 				7D05C89D2CDA54E90080BB93 /* NetworkManager.swift in Sources */,
 				7D05C89B2CDA543A0080BB93 /* NetworkPath.swift in Sources */,
+				7D05C8A12CDA9B510080BB93 /* BigMapService.swift in Sources */,
 				7D7B094C2CD9431100479741 /* Texts.swift in Sources */,
 				7DC9A9792CD297A4009B3C82 /* View+Extensions.swift in Sources */,
 				7D5FDCDD2CD55D6000F433A4 /* BigMapViewModel.swift in Sources */,
