@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7D05C8922CDA53BD0080BB93 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D05C8912CDA53BD0080BB93 /* Constants.swift */; };
+		7D05C8942CDA53F50080BB93 /* TargetType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D05C8932CDA53F50080BB93 /* TargetType.swift */; };
+		7D05C8972CDA54150080BB93 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 7D05C8962CDA54150080BB93 /* Alamofire */; };
+		7D05C8992CDA54150080BB93 /* AlamofireDynamic in Frameworks */ = {isa = PBXBuildFile; productRef = 7D05C8982CDA54150080BB93 /* AlamofireDynamic */; };
+		7D05C89B2CDA543A0080BB93 /* NetworkPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D05C89A2CDA543A0080BB93 /* NetworkPath.swift */; };
+		7D05C89D2CDA54E90080BB93 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D05C89C2CDA54E90080BB93 /* NetworkManager.swift */; };
 		7D5FDCD32CD5536B00F433A4 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D5FDCD22CD5536B00F433A4 /* DetailView.swift */; };
 		7D5FDCD52CD5565F00F433A4 /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D5FDCD42CD5565F00F433A4 /* DetailViewModel.swift */; };
 		7D5FDCD82CD55A9E00F433A4 /* BigMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D5FDCD72CD55A9E00F433A4 /* BigMapView.swift */; };
@@ -54,6 +60,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7D05C8912CDA53BD0080BB93 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		7D05C8932CDA53F50080BB93 /* TargetType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TargetType.swift; sourceTree = "<group>"; };
+		7D05C89A2CDA543A0080BB93 /* NetworkPath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkPath.swift; sourceTree = "<group>"; };
+		7D05C89C2CDA54E90080BB93 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		7D5FDCD22CD5536B00F433A4 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		7D5FDCD42CD5565F00F433A4 /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
 		7D5FDCD72CD55A9E00F433A4 /* BigMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BigMapView.swift; sourceTree = "<group>"; };
@@ -102,6 +112,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7D05C8972CDA54150080BB93 /* Alamofire in Frameworks */,
+				7D05C8992CDA54150080BB93 /* AlamofireDynamic in Frameworks */,
 				7D69FA582CD2BDCF000E7001 /* Swinject in Frameworks */,
 				7D69FA632CD2C101000E7001 /* Swinject-Dynamic in Frameworks */,
 				7D69FA5A2CD2BDCF000E7001 /* Swinject-Dynamic in Frameworks */,
@@ -112,6 +124,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7D05C8902CDA52DC0080BB93 /* NetworkManager */ = {
+			isa = PBXGroup;
+			children = (
+				7D05C8912CDA53BD0080BB93 /* Constants.swift */,
+				7D05C8932CDA53F50080BB93 /* TargetType.swift */,
+				7D05C89A2CDA543A0080BB93 /* NetworkPath.swift */,
+				7D05C89C2CDA54E90080BB93 /* NetworkManager.swift */,
+			);
+			path = NetworkManager;
+			sourceTree = "<group>";
+		};
 		7D5FDCD12CD5535A00F433A4 /* DetailModule */ = {
 			isa = PBXGroup;
 			children = (
@@ -290,6 +313,7 @@
 		7DF63D8E2CD7C8B600AA7EE3 /* Manager */ = {
 			isa = PBXGroup;
 			children = (
+				7D05C8902CDA52DC0080BB93 /* NetworkManager */,
 				7DF63D8F2CD7C8C000AA7EE3 /* LocationManager */,
 			);
 			path = Manager;
@@ -324,6 +348,8 @@
 				7D69FA592CD2BDCF000E7001 /* Swinject-Dynamic */,
 				7D69FA602CD2C101000E7001 /* Swinject */,
 				7D69FA622CD2C101000E7001 /* Swinject-Dynamic */,
+				7D05C8962CDA54150080BB93 /* Alamofire */,
+				7D05C8982CDA54150080BB93 /* AlamofireDynamic */,
 			);
 			productName = Voyagely;
 			productReference = 7DC9A95C2CD273E4009B3C82 /* Voyagely.app */;
@@ -355,6 +381,7 @@
 			mainGroup = 7DC9A9532CD273E3009B3C82;
 			packageReferences = (
 				7D69FA562CD2BDCF000E7001 /* XCRemoteSwiftPackageReference "Swinject" */,
+				7D05C8952CDA54150080BB93 /* XCRemoteSwiftPackageReference "Alamofire" */,
 			);
 			productRefGroup = 7DC9A95D2CD273E4009B3C82 /* Products */;
 			projectDirPath = "";
@@ -402,8 +429,12 @@
 				7DF63D912CD7C8CF00AA7EE3 /* LocationManager.swift in Sources */,
 				7DC9A97F2CD2A5E1009B3C82 /* ListOnMap.swift in Sources */,
 				7D5FDCD52CD5565F00F433A4 /* DetailViewModel.swift in Sources */,
+				7D05C8942CDA53F50080BB93 /* TargetType.swift in Sources */,
+				7D05C8922CDA53BD0080BB93 /* Constants.swift in Sources */,
 				7D69FA662CD2C311000E7001 /* Share.swift in Sources */,
 				7DF63D942CD7FEBA00AA7EE3 /* ListView.swift in Sources */,
+				7D05C89D2CDA54E90080BB93 /* NetworkManager.swift in Sources */,
+				7D05C89B2CDA543A0080BB93 /* NetworkPath.swift in Sources */,
 				7D7B094C2CD9431100479741 /* Texts.swift in Sources */,
 				7DC9A9792CD297A4009B3C82 /* View+Extensions.swift in Sources */,
 				7D5FDCDD2CD55D6000F433A4 /* BigMapViewModel.swift in Sources */,
@@ -631,6 +662,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		7D05C8952CDA54150080BB93 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.10.1;
+			};
+		};
 		7D69FA562CD2BDCF000E7001 /* XCRemoteSwiftPackageReference "Swinject" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Swinject/Swinject.git";
@@ -642,6 +681,16 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		7D05C8962CDA54150080BB93 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7D05C8952CDA54150080BB93 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+		7D05C8982CDA54150080BB93 /* AlamofireDynamic */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7D05C8952CDA54150080BB93 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = AlamofireDynamic;
+		};
 		7D69FA572CD2BDCF000E7001 /* Swinject */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 7D69FA562CD2BDCF000E7001 /* XCRemoteSwiftPackageReference "Swinject" */;
