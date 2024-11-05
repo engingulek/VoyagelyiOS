@@ -9,6 +9,7 @@ import Foundation
 
 protocol HomeServiceProtocol {
     func getCategories() async throws -> [Category]
+    func getNearByCity(_ city:String) async throws -> [NearByPlace]
     func getUserShare() -> [UserShare]
 }
 
@@ -23,6 +24,15 @@ class HomeService : HomeServiceProtocol {
             throw error
         }
 
+    }
+    
+    func getNearByCity(_ city: String) async throws -> [NearByPlace] {
+        do{
+            let response = try await networkManager.fetch(target: .nearBy(city), responseClass: [NearByPlace].self)
+            return response
+        }catch{
+            throw error
+        }
     }
     
     func getUserShare() ->  [UserShare] {

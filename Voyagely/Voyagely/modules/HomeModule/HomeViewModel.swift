@@ -6,19 +6,20 @@
 //
 
 import Foundation
+import CoreLocation
 
 class HomeViewModel : ObservableObject {
     
     private let service : HomeServiceProtocol
-    
+    private let locationManager:LocationManagerProtocol = LocationManager()
     @Published var categoires:[Category] = []
+    @Published var nearByCities: [NearByPlace] = []
     @Published var usershare:[UserShare] = []
     @Published var searchText:String = ""
     @Published var searchToView : Bool = false
     @Published var toDetailView:Bool = false
     @Published var toBigMapView:Bool = false
     @Published var toStoryView:Bool = false
-    @Published var nearByPlaces:[PlaceInfoOnMap] = []
     @Published var errorState:Bool = false
     @Published var loadingAction:Bool = true
     @Published var selectedCategoryId : Int = 1
@@ -32,6 +33,7 @@ class HomeViewModel : ObservableObject {
     func onAppear() async {
         // fetchStroies()
         await fetchCategories()
+        await fetchNearByCities()
         // fetchNearByLocation()
         
         
@@ -43,6 +45,27 @@ class HomeViewModel : ObservableObject {
             DispatchQueue.main.async { [weak self] in
                 guard let self = self else {return}
                 categoires = list
+                errorState = false
+                loadingAction = false
+                
+            }
+        }catch{
+            DispatchQueue.main.async { [weak self] in
+                guard let self = self else {return}
+                categoires = []
+                errorState = true
+                loadingAction = false
+                
+            }
+        }
+    }
+    
+    private func fetchNearByCities() async {
+        do{
+            let list = try await service.getNearByCity("Istanbul")
+            DispatchQueue.main.async { [weak self] in
+                guard let self = self else {return}
+                nearByCities = list
                 errorState = false
                 loadingAction = false
                 
@@ -86,14 +109,16 @@ class HomeViewModel : ObservableObject {
         toStoryView = true
     }
     
-    private func fetchNearByLocation(){
-        nearByPlaces = [
-            .init(id: 1, imageURL: "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1a/97/1f/fc/main-lobby.jpg?w=600&h=400&s=1",
-                  name: "Light Soon", categoryName: "Restaurant", rating: 4.5, comment: 20, latitude: 40.99955, longitude: 29.04578),
-            
-                .init(id: 2, imageURL: "https://media-cdn.tripadvisor.com/media/photo-s/0a/76/07/ad/my-chef-kadikoy-istanbul.jpg",
-                      name: "Our Bar", categoryName: "Bar", rating: 4.0, comment:40, latitude: 41.00024, longitude: 29.04318)
-        ]
+    func calculateDistance(longitude:Double,latitude:Double) -> String{
+        let currentLocation = CLLocation(latitude: 41.00048, longitude: 29.04426)
+        let ditance = currentLocation.distance(from: CLLocation(latitude: latitude, longitude: longitude))
+        
+        if ditance < 1 {
+         return   String(format: "%.2f", ditance) + "m"
+        }else{
+          return  String(format: "%.2f", ditance) + "km"
+        }
+       
     }
 }
 

@@ -18,8 +18,9 @@ struct ListView: View {
         VStack{
             PrimaryTitle(text: TextTheme.nearBy.rawValue)
             LazyVGrid(columns: columns) {
-                ForEach(0..<10) { _ in
-                    ListViewCell()
+                ForEach(viewModel.nearByCities,id:\.id) { place in
+                    ListViewCell(place: place,viewModel: viewModel)
+                        .padding(.horizontal)
                         .onTapGesture {
                             viewModel.onTapGesturePlace(id: 1)
                         }
@@ -31,14 +32,14 @@ struct ListView: View {
 
 
 private struct ListViewCell : View {
+    let place:NearByPlace
+    @ObservedObject var viewModel:HomeViewModel
     var body: some View {
         VStack(alignment:.leading){
             ZStack(alignment:.topLeading) {
-                Image("test1")
-                    .resizable()
-                    .scaledToFill()
+                AsyncImageLoad(imageURL: place.baseImage)
                     .frame(width: 180,height: 200)
-               Text("Restaurant")
+                Text(place.category.name)
                     .font(.footnote)
                     .foregroundStyle(.white)
                     .padding(5)
@@ -47,17 +48,19 @@ private struct ListViewCell : View {
             }
             VStack(alignment:.leading){
                 HStack{
-                    Text("Name")
+                    Text(place.name)
                         .font(.title3)
-                    Text("$$$")
+                    HStack(spacing:1) {
+                        ForEach(Array(repeating: "$", count: place.priceScale - 1), id: \.self) { price in
+                            Text(price)
+                        }
+                    }
+                  
                 }
-                HStack(spacing:2){
-                    ImageAndText(image: "star.fill", title: "4.5")
-                    XSText(text:"(50 Reviews)" )
-                }
-                HStack(spacing:2){
-                    ImageAndText(image: "mappin", title: "Bakırkoy")
-                    XSText(text:"14 km")
+                HStack{
+                    ImageAndText(image: "mappin", title: place.district)
+                    Spacer()
+                    XSText(text:viewModel.calculateDistance(longitude: place.longitude, latitude: place.latitude))
                  
                 }
             }.padding(.horizontal)

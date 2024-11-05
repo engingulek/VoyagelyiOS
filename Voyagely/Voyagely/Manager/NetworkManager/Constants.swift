@@ -11,4 +11,6 @@ enum Constants : String {
     case baseUrl = "http://localhost:8080/api"
     case getAll = "/getAll"
     case category = "/category"
+    case place = "/place"
+    case nearBy = "/nearBy"
 }
